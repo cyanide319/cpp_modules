@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:06:50 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/17 14:55:12 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:56:18 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ int	PhoneBook::search_contact(){
 		else
 			std::cout << input << " is not a valid index." << std::endl;
 	}
+	else exit(0);
 	return (0);
 }
 
