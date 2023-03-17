@@ -22,7 +22,6 @@
 
 #VScrap
 .vscode
-settings.json
 
 # Compiled Static libraries
 *.lai
@@ -35,5 +34,5 @@ settings.json
 *.out
 *.app
 .DS_Store
-.json
+*.json
 phonebook

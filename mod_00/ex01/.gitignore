@@ -35,5 +35,5 @@ settings.json
 *.out
 *.app
 .DS_Store
-.json
+*.json
 phonebook
