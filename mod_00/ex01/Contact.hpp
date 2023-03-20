@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbeaudoin <tbeaudoin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:32:14 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/17 11:33:06 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:37:29 by tbeaudoin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include"PhoneBook.hpp"
+#include<string.h>
+#include<iostream>
 
 class Contact{
 	

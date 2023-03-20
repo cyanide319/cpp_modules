@@ -3,24 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbeaudoin <tbeaudoin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:06:50 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/17 14:56:18 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:39:19 by tbeaudoin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) : _index(0), _swap_flag(0){};
+PhoneBook::PhoneBook(void) : _index(0) {};
 
 PhoneBook::~PhoneBook(void) {};
 
 int	PhoneBook::add_contact(){
 	std::string	str;
-	
-	if (PhoneBook::_swap_flag == 1)
-		PhoneBook::swap();
 	
 	std::cout << "Enter first name:";
 	getline(std::cin, str);
@@ -72,27 +69,12 @@ int	PhoneBook::add_contact(){
 	}
 	else exit(0);
 
-	PhoneBook::_swap_flag = 0;
 	if (PhoneBook::_index < 7)
 		PhoneBook::_index++;
 	else
-	{
-		PhoneBook::_index = 0;
-		PhoneBook::_swap_flag = 1;
-		
-	}
+		PhoneBook::_index = 0;		
 
 	return (0);	
-}
-
-void	PhoneBook::swap(){
-	contacts[7] = contacts[6];
-	contacts[6] = contacts[5];
-	contacts[5] = contacts[4];
-	contacts[4] = contacts[3];
-	contacts[3] = contacts[2];
-	contacts[2] = contacts[1];
-	contacts[1] = contacts[0];
 }
 
 int	PhoneBook::search_contact(){

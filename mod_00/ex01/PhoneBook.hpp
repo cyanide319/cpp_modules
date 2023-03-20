@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbeaudoin <tbeaudoin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:32:14 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/17 14:44:01 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:39:52 by tbeaudoin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class PhoneBook{
 	private:
 		Contact contacts[8];
 		int		_index;
-		int		_swap_flag;
 };
 
 #endif
