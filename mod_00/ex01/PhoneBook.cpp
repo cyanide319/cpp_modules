@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:06:50 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/21 12:37:37 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:52:39 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	PhoneBook::add_contact(){
 		PhoneBook::_index++;
 	else
 		PhoneBook::_index = 0;
+
 	return (0);	
 }
 
