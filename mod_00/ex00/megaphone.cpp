@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:21:49 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/14 14:23:09 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:34:40 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int	main(int argc, char **argv){
 			i++;
 			}
 		std::cout << str;
-		if (argv + 1)
-			std::cout << " ";
 		j++;
 	}
 	std::cout << std::endl;
 	return (0);
 }
+
+		// if (argv + 1)
+		// 	std::cout << " ";
