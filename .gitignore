@@ -21,7 +21,8 @@
 *.smod
 
 #VScrap
-.vscode
+*.vscode
+*.dSym
 
 # Compiled Static libraries
 *.lai

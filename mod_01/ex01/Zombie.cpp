@@ -6,18 +6,22 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:02:45 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/21 16:41:39 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:41:46 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie(void){
+	std::cout << "A wild fucking horde appear" << std::endl;
+}
 
 Zombie::Zombie(std::string _name){
 	Zombie::set_name(_name);
 	std::cout << Zombie::get_name() << " has risen!" << std::endl;
 }
 
-Zombie::~Zombie(void){
+Zombie::~Zombie(){
 	std::cout << Zombie::get_name() << " has died! Again!" << std::endl;
 }
 

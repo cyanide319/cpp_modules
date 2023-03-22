@@ -6,13 +6,16 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 13:46:24 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/03/14 14:30:38 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/03/21 15:52:33 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = zombie
 
-SRCS = megaphone.cpp \
+SRCS = main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		zombieHorde.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
