@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:06 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/31 15:53:14 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:01:05 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,23 @@
 
 Fixed::Fixed(): _fixedPoint(0){
     std::cout << "Default construtor called" << std::endl;
+}
+
+Fixed::Fixed(const int fp){
+    setRawBits(fp << _bitsFract);
+    std::cout << "Default construtor called" << std::endl;
+}
+
+Fixed::Fixed(const float fp) {
+    int intPart = int(fp);
+    float fractPart = fp - intPart;
+    _fixedPoint = int(roundf((fractPart * (1 << _bitsFract)) + (intPart << _bitsFract)));
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float fp) {
+   
+    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other){
