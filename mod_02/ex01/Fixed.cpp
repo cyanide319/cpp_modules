@@ -6,12 +6,14 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:06 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/05 12:56:19 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:28:51 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Fixed.hpp"
+
+//Construtors
 
 Fixed::Fixed(): _fixedPoint(0){
     std::cout << "Default construtor called" << std::endl;
@@ -34,18 +36,26 @@ Fixed::Fixed(const Fixed& other){
     *this = other;
 }
 
+//Destructors
+
 Fixed::~Fixed(){
     std::cout << "Destructor called" << std::endl;
 }
+
+//Getters
 
 int Fixed::getRawBits(void) const{
     // std::cout << "getRawBits member function called" << std::endl;
     return (this->_fixedPoint);
 }
 
+//Setters
+
 void    Fixed::setRawBits(int const new_val){
     Fixed::_fixedPoint = new_val;
 }
+
+//Functions
 
 float   Fixed::toFloat(void) const{
     return (float(this->_fixedPoint) / (1 << _bitsFract));
@@ -54,6 +64,8 @@ float   Fixed::toFloat(void) const{
 int Fixed::toInt(void) const{
     return (this->_fixedPoint >> _bitsFract);
 }
+
+//Operators overloads
 
 Fixed& Fixed::operator=(const Fixed& other){
     std::cout << "Copy assignment operator called" << std::endl;

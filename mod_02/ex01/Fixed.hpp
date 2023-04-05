@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/05 12:51:33 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:29:18 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Fixed{
 
         float           toFloat(void) const;
         int             toInt(void) const;
+
         Fixed&          operator=(const Fixed& ohter);
         
         int             getRawBits(void) const;

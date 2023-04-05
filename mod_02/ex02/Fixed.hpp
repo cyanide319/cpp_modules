@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/05 12:51:33 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:11:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,32 @@ class Fixed{
         Fixed(const Fixed& new_object);
         ~Fixed();
 
-        float           toFloat(void) const;
-        int             toInt(void) const;
-        Fixed&          operator=(const Fixed& ohter);
+        float           	toFloat(void) const;
+        int             	toInt(void) const;
+
+        Fixed&          	operator=(const Fixed& ohter);
+        bool            	operator>(const Fixed& other);
+        bool            	operator<(const Fixed& other);
+        bool            	operator>=(const Fixed& other);
+        bool            	operator<=(const Fixed& other);
+        bool            	operator==(const Fixed& other);
+        bool            	operator!=(const Fixed& other);
+        Fixed           	operator*(const Fixed& other);
+        Fixed           	operator/(const Fixed& other);
+        Fixed           	operator+(const Fixed& other);
+        Fixed           	operator-(const Fixed& other);
+        Fixed           	operator--(void);
+        Fixed           	operator++(void);
+        Fixed				operator--(int);
+        Fixed				operator++(int);
+
+        static Fixed&		min(Fixed& left_side, Fixed& right_side);
+        static Fixed&		max(Fixed& left_side, Fixed& right_side);
+        const static Fixed&	min(const Fixed& left_side, const Fixed& right_side);
+        const static Fixed&	max(const Fixed& left_side, const Fixed& right_side);
         
-        int             getRawBits(void) const;
-		void            setRawBits(int const raw);
+        int             	getRawBits(void) const;
+		void            	setRawBits(int const raw);
         
     private:
         int                 _fixedPoint;
