@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:06 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/05 18:15:02 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:31:31 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,28 @@ bool Fixed::operator!=(const Fixed& other){
 }
 
 Fixed Fixed::operator*(const Fixed& other) {
-    int64_t ops = (this->getRawBits() * other.getRawBits()) >> this->_bitsFract;
-    ops >>= _bitsFract;
-    Fixed result(float(ops) / (1 << _bitsFract));
+    Fixed result;
+
+    int64_t ops = (this->_fixedPoint * other.getRawBits()) >> this->_bitsFract;
+    result.setRawBits(ops);
     return (result);
 }
 
 Fixed Fixed::operator/(const Fixed& other) {
-    int64_t ops = ((int64_t)this->getRawBits() * (1 << this->_bitsFract)) / other.getRawBits();
-    Fixed result((float)ops / (1 << _bitsFract));
+    Fixed result;
+
+    int64_t ops = int64_t(this->getRawBits()) << this->_bitsFract;
+    result.setRawBits(ops / other.getRawBits());
     return (result);
 }
+
+// Fixed Fixed::operator/(const Fixed& other) {
+//     Fixed result;
+//     int64_t dividend = static_cast<int64_t>(this->getRawBits()) << this->_bitsFract;
+//     result.setRawBits(dividend / other.getRawBits());
+//     return result;
+// }
+
 
 Fixed Fixed::operator+(const Fixed& other){
     Fixed result;
@@ -136,7 +147,7 @@ Fixed Fixed::operator+(const Fixed& other){
 Fixed Fixed::operator-(const Fixed& other){
     Fixed result;
     
-    int32_t ops = (this->getRawBits()) - (other.getRawBits());
+    int ops = (this->getRawBits()) - (other.getRawBits());
     result.setRawBits(ops);
     return (result);
 }
