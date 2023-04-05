@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/03/31 15:55:49 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:51:33 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #pragma once
 
 #include<iostream>
+#include<ostream>
 #include<cmath>
 
 class Fixed{
@@ -25,18 +26,22 @@ class Fixed{
         Fixed();
         Fixed(const float fp);
         Fixed(const int fp);
-        // Fixed();
         Fixed(const Fixed& new_object);
         ~Fixed();
+
+        float           toFloat(void) const;
+        int             toInt(void) const;
+        Fixed&          operator=(const Fixed& ohter);
         
-        Fixed& operator=(const Fixed& ohter);
-        int     getRawBits(void) const;
-		void    setRawBits(int const raw);
-		// void    setRawBits(float const raw);
+        int             getRawBits(void) const;
+		void            setRawBits(int const raw);
+        
     private:
         int                 _fixedPoint;
         static const int    _bitsFract = 8;
 
 };
+
+std::ostream&   operator<<(std::ostream& output, const Fixed& fixed);
 
 #endif
