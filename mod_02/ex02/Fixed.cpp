@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:47:06 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/05 18:31:31 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:53:32 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,30 @@
 //Construtors
 
 Fixed::Fixed(): _fixedPoint(0){
-    // std::cout << "Default construtor called" << std::endl;
+    std::cout << "Default construtor called" << std::endl;
 }
 
 Fixed::Fixed(const int fp){
 	setRawBits(fp << _bitsFract);
-    // std::cout << "Int construtor called" << std::endl;
+    std::cout << "Int construtor called" << std::endl;
 }
 
 Fixed::Fixed(const float fp) {
     int intPart = int(fp);
     float fractPart = fp - intPart;
     setRawBits(int(roundf((fractPart * (1 << _bitsFract)) + (intPart << _bitsFract))));
-    // std::cout << "Float constructor called" << std::endl;
+    std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other){
-    // std::cout << "Copy construtor called" << std::endl;
+    std::cout << "Copy construtor called" << std::endl;
     *this = other;
 }
 
 //Destructors
 
 Fixed::~Fixed(){
-    // std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 //Getters
@@ -68,7 +68,7 @@ int Fixed::toInt(void) const{
 //Copy Assigment Operator
 
 Fixed& Fixed::operator=(const Fixed& other){
-    // std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         _fixedPoint = other.getRawBits();
     return (*this);
@@ -114,41 +114,25 @@ bool Fixed::operator!=(const Fixed& other){
 
 Fixed Fixed::operator*(const Fixed& other) {
     Fixed result;
-
-    int64_t ops = (this->_fixedPoint * other.getRawBits()) >> this->_bitsFract;
-    result.setRawBits(ops);
+    result.setRawBits((this->_fixedPoint * other.getRawBits()) >> this->_bitsFract);
     return (result);
 }
 
 Fixed Fixed::operator/(const Fixed& other) {
     Fixed result;
-
-    int64_t ops = int64_t(this->getRawBits()) << this->_bitsFract;
-    result.setRawBits(ops / other.getRawBits());
+    result.setRawBits((this->getRawBits()) << this->_bitsFract / other.getRawBits());
     return (result);
 }
 
-// Fixed Fixed::operator/(const Fixed& other) {
-//     Fixed result;
-//     int64_t dividend = static_cast<int64_t>(this->getRawBits()) << this->_bitsFract;
-//     result.setRawBits(dividend / other.getRawBits());
-//     return result;
-// }
-
-
 Fixed Fixed::operator+(const Fixed& other){
     Fixed result;
-
-    int32_t ops = (this->getRawBits()) + (other.getRawBits());
-    result.setRawBits(ops);
+    result.setRawBits((this->getRawBits()) + (other.getRawBits()));
     return (result);
 }
 
 Fixed Fixed::operator-(const Fixed& other){
     Fixed result;
-    
-    int ops = (this->getRawBits()) - (other.getRawBits());
-    result.setRawBits(ops);
+    result.setRawBits((this->getRawBits()) - (other.getRawBits()));
     return (result);
 }
 
