@@ -6,11 +6,11 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/04/06 18:04:46 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/04/07 14:47:52 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = boderland
+NAME = borderland
 
 SRCS = main.cpp \
 		ClapTrap.cpp \

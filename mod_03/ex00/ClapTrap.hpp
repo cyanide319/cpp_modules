@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:34 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/07 10:37:59 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:50:11 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #pragma once
 
 #include<iostream>
+
+#define BLUE_CL "\033[1;36m"
+#define WHITE_CL "\033[0;37m"
+#define RED_CL "\033[0;31m"
+#define YELLOW_CL "\033[0;33m"
+#define PINK_CL "\033[38;2;255;192;203m"
 
 class ClapTrap{
     public:

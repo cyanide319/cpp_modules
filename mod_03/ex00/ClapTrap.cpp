@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:37 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/07 11:12:36 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:44:51 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 //DEFAULT CONSTRUCT
 ClapTrap::ClapTrap():
 _hit_point(10), _energy_point(10), _attack_damage(0), _name("Default"){
-std::cout<<"Default constructor"<<std::endl;}
+std::cout<< RED_CL <<"Default constructor"<<std::endl;}
 //NAMED CONSTRUCT
 ClapTrap::ClapTrap(std::string name):
-_hit_point(10), _energy_point(10), _attack_damage(0){
-set_name(name);	std::cout<<"Named constructor"<<std::endl;}
+_hit_point(10), _energy_point(10), _attack_damage(0){set_name(name);
+std::cout<< RED_CL <<"Named constructor"<<std::endl;}
 //COPY CONSTRUCT
-ClapTrap::ClapTrap(const ClapTrap& new_object){
-*this = new_object;	std::cout<<"Copy constructor"<<std::endl;}
+ClapTrap::ClapTrap(const ClapTrap& new_object){*this = new_object;
+std::cout<< RED_CL <<"Copy constructor"<<std::endl;}
 //DESTRUCTOR
-ClapTrap::~ClapTrap(){std::cout<<"Destructor"<<std::endl;}
+ClapTrap::~ClapTrap(){std::cout<< RED_CL <<"Destructor"<<std::endl;}
 
 //SETTERS
 void	ClapTrap::set_name(std::string new_val){this->_name = new_val;}
@@ -43,17 +43,17 @@ void	ClapTrap::attack(const std::string& target){
 		if (get_energy_point() > 0){
 				int energy = get_energy_point() - 1;
 				set_energy_point(energy);
-				std::cout<<"Claptrap "<<get_name()<<" attacks "<<target<<", causing "<<get_attack_damage()<<" points of damages!"<<std::endl;}
-		else	std::cout<<"Claptrap "<<get_name()<<" has no energy left!"<<std::endl; return;}
-	else	std::cout<<"Claptrap "<<get_name()<<" is dead!"<<std::endl; return;
-	// int energy = get_energy_point() - 1;
-	// set_energy_point(energy);
+				std::cout<< WHITE_CL <<"Claptrap "<<get_name()<<" attacks "<<target<<", causing " \
+				<<get_attack_damage()<<" points of damages!"<<std::endl;}
+		else	std::cout<< RED_CL <<"Claptrap "<<get_name()<<" has no energy left!"<<std::endl; return;}
+	else	std::cout<< RED_CL <<"Claptrap "<<get_name()<<" is dead!"<<std::endl; return;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount){std::cout<<"Claptrap "<<get_name()
+void	ClapTrap::takeDamage(unsigned int amount){if (amount < 0)	amount = 0;
+	std::cout<< WHITE_CL <<"Claptrap "<<get_name() \
 	<<" receive "<<amount<<" points of damages!"<<std::endl;
 	int total = get_hit_point() - amount;
-	if (total > 10) total = 10;
+	if (total < 0) total = 0;
 	set_hit_point(total);
 }
 
@@ -62,14 +62,12 @@ void	ClapTrap::beRepaired(unsigned int amount){
 		if (get_energy_point() > 0){
 			int energy = get_energy_point() - 1;
 			set_energy_point(energy);
-			std::cout<<"Claptrap "<<get_name()<<" is repaired for "<<amount<<" hit points!"<<std::endl;
+			std::cout<< WHITE_CL <<"Claptrap "<<get_name()<<" is repaired for "<<amount<<" hit points!"<<std::endl;
 			int total = get_hit_point() + amount;
 			if (!(total < 10 && total >= 0)) total = 10;
 			set_hit_point(total);}
-		else	std::cout<<"Claptrap "<<get_name()<<" has no energy left!"<<std::endl; return;}
-	else	std::cout<<"Claptrap "<<get_name()<<" is dead!"<<std::endl; return;
-	// int energy = get_energy_point() - 1;
-	// set_energy_point(energy);
+		else	std::cout<< RED_CL <<"Claptrap "<<get_name()<<" has no energy left!"<<std::endl; return;}
+	else	std::cout<< RED_CL <<"Claptrap "<<get_name()<<" is dead!"<<std::endl; return;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other){
