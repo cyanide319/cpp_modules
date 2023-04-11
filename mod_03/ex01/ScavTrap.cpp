@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:26:31 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 16:01:13 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/11 17:46:33 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ ScavTrap::ScavTrap(){
 	std::cout<< RED_CL <<"ScavTrap Default constructor"<<std::endl;}
 //NAMED CONSTRUCT
 ScavTrap::ScavTrap(std::string name){
-set_hit_point(100); set_max_hit_point(100); set_energy_point(50); set_attack_damage(20);
-set_guard_mode(false); set_name(name); set_type("Scavtrap ");
-std::cout<< RED_CL <<"ScavTrap Named constructor"<<std::endl;}
+	set_hit_point(100); set_max_hit_point(100); set_energy_point(50); set_attack_damage(20);
+	set_guard_mode(false); set_name(name); set_type("Scavtrap ");
+	std::cout<< RED_CL <<"ScavTrap Named constructor"<<std::endl;}
 //COPY CONSTRUCT
 ScavTrap::ScavTrap(const ScavTrap& new_object){*this = new_object;
 std::cout<< RED_CL <<"ScavTrap Copy constructor"<<std::endl;}
@@ -34,17 +34,6 @@ void	ScavTrap::set_guard_mode(bool new_val){this->_guard_mode = new_val;}
 bool	ScavTrap::get_guard_mode(void) const{return(this->_guard_mode);}
 
 //MEMBER FUNCTIONS
-// void	ScavTrap::attack(const std::string& target){
-// 	if(get_hit_point() > 0){
-// 		if (get_energy_point() > 0){
-// 			int energy = get_energy_point() - 1;
-// 			set_energy_point(energy);
-// 			std::cout<< WHITE_CL<<"ScavTrap "<<get_name()<<" attacks "<<target<<", causing " \
-// 			<<get_attack_damage()<<" points of damages!"<<std::endl;}
-// 		else	std::cout<< RED_CL<<get_name()<<" has no energy left!"<<std::endl; return;}
-// 	else	std::cout<< RED_CL<<get_name()<<" is dead!"<<std::endl; return;
-// }
-
 void	ScavTrap::takeDamage(unsigned int amount){
 	if (amount < 0)	amount = 0;
 	if (get_guard_mode() == true){
