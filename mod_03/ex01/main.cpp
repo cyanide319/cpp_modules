@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 15:40:51 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:43:40 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 void	print_tab(ClapTrap *clap, ScavTrap *scav){
 	int	i = 0;
 	while(i < 2){
-		std::cout << BLUE_CL << "|Index:" << std::setw(4) << i
-		<< "|Name:" << std::setw(10) << clap[i].get_name() 
-		<< "|HP:" << std::setw(10) << clap[i].get_hit_point() 
-		<< "|Energy:" << std::setw(10) <<clap[i].get_energy_point() << "|"
-		<< "|DMG:" << std::setw(10) <<clap[i].get_attack_damage() << "|"
-		<< std::endl;
+		std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
+		<< BLUE_CL << "|Name:" << PINK_CL << std::setw(10) << clap[i].get_name() 
+		<<	BLUE_CL << "|HP:" << PINK_CL << std::setw(4) << clap[i].get_hit_point() 
+		<<	BLUE_CL << "|Energy:" << PINK_CL << std::setw(4) << clap[i].get_energy_point()
+		<<	BLUE_CL << "|DMG:" << PINK_CL << std::setw(4) << clap[i].get_attack_damage()
+		<<	BLUE_CL << "|" << std::endl;
 		i++;}
 	while(i < 4){
-		std::cout << BLUE_CL << "|Index:" << std::setw(4) << i
-		<< "|Name:" << std::setw(10) << scav[i - 2].get_name() 
-		<< "|HP:" << std::setw(10) << scav[i - 2].get_hit_point() 
-		<< "|Energy:" << std::setw(10) << scav[i - 2].get_energy_point() << "|"
-		<< "|DMG:" << std::setw(10) << scav[i - 2].get_attack_damage() << "|"
-		<< "|Guard:" << std::setw(10) << scav[i - 2].get_guard_mode() << "|"
-		<< std::endl;
+		std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
+		<<	BLUE_CL << "|Name:"<< PINK_CL << std::setw(10) << scav[i - 2].get_name() 
+		<<	BLUE_CL << "|HP:"<< PINK_CL << std::setw(4) << scav[i - 2].get_hit_point() 
+		<<	BLUE_CL << "|Energy:"<< PINK_CL << std::setw(4) << scav[i - 2].get_energy_point()
+		<<	BLUE_CL << "|DMG:"<< PINK_CL << std::setw(4) << scav[i - 2].get_attack_damage()
+		<<	BLUE_CL << "|Guard:"<< PINK_CL << std::setw(4) << scav[i - 2].get_guard_mode()
+		<<	BLUE_CL << "|"<< std::endl;
 		i++;}
 }
 
@@ -66,29 +66,33 @@ int	main(void){
 	
 		if (std::cin.good()){
 			print_tab(clap, scav);
-			std::cout<< YELLOW_CL << "Create your own <claptrap>!, <attack> another claptrap, <repair> a claptrap, enter <guard> mode or <exit>" << std::endl;
+			std::cout<<YELLOW_CL<<"<name> Create your own claptrap!"<<std::endl<<
+			"<attack> Attack another claptrap!"<<std::endl<<
+			"<repair> Repair a claptrap!"<<std::endl<<
+			"<guard> Your scavtrap enter guard mode!"<<std::endl<<
+			"<exit>"<<std::endl<<GREEN_CL;
 			getline(std::cin, input);
 	
-			if(input == "claptrap"){
+			if(input == "name"){
 
-				std::cout<< YELLOW_CL <<"Which one do you want to modify?(Index): ";
+				std::cout<<YELLOW_CL<<"Which one do you want to modify?(Index): "<<GREEN_CL;
 				getline(std::cin, clap_str);
 				clap_i = str_convert(clap_str);
 				switch(clap_i){
 					case 0:
 					case 1:
-						std::cout<< YELLOW_CL << "Name your ClapTrap: ";
+						std::cout<<YELLOW_CL<<"Name your ClapTrap: "<<GREEN_CL;
 						getline(std::cin, input);
 						input = format_str(input);
 						clap[clap_i].set_name(input);
-						std::cout<< YELLOW_CL <<"Attack damages(Int): ";
+						std::cout<<YELLOW_CL<<"Attack damages(Int): "<<GREEN_CL;
 						getline(std::cin, clap_str);
 						dmgs = str_convert(clap_str);
 						if (dmgs >= 0 && dmgs <= 100) clap[clap_i].set_attack_damage(dmgs);
 						break ;
 					case 2:
 					case 3:
-						std::cout<< YELLOW_CL << "Name your ScavTrap: ";
+						std::cout<<YELLOW_CL<<"Name your ScavTrap: "<<GREEN_CL;
 						getline(std::cin, input);
 						input = format_str(input);
 						scav[clap_i - 2].set_name(input);
@@ -97,13 +101,13 @@ int	main(void){
 			}			
 
 			else if(input == "attack"){
-				std::cout<< YELLOW_CL <<"Who is the attacker?(Index): ";
+				std::cout<<YELLOW_CL<<"Who is the attacker?(Index): "<<GREEN_CL;
 				getline(std::cin, clap_str);
 				clap_i = str_convert(clap_str);
 				switch(clap_i){
 					case 0:
 					case 1:
-						std::cout<< YELLOW_CL <<"Who is the target?(Index): ";
+						std::cout<<YELLOW_CL<<"Who is the target?(Index): "<<GREEN_CL;
 						getline(std::cin, clap_str);
 						clap_j = str_convert(clap_str);
 						switch(clap_j){
@@ -122,7 +126,7 @@ int	main(void){
 
 					case 2:
 					case 3:
-						std::cout<< YELLOW_CL <<"Who is the target?(Index): ";
+						std::cout<<YELLOW_CL<<"Who is the target?(Index): "<<GREEN_CL;
 						getline(std::cin, clap_str);
 						clap_j = str_convert(clap_str);
 						switch(clap_j){
@@ -142,13 +146,13 @@ int	main(void){
 			}
 
 			else if(input == "repair"){
-				std::cout<< YELLOW_CL <<"Who is repairing?(Index): ";
+				std::cout<<YELLOW_CL<<"Who is repairing?(Index): "<<GREEN_CL;
 				getline(std::cin, clap_str);
 				clap_i = str_convert(clap_str);
 				switch (clap_i){
 					case 0:
 					case 1:
-						std::cout<< YELLOW_CL <<"For how many hp?(Int): ";
+						std::cout<<YELLOW_CL<<"For how many hp?(Int): "<<GREEN_CL;
 						getline(std::cin, clap_str);
 						repair = str_convert(clap_str);
 						if (repair >= 0)
@@ -156,7 +160,7 @@ int	main(void){
 						break ;
 					case 2:
 					case 3:
-						std::cout<< YELLOW_CL <<"For how many hp?(Int): ";
+						std::cout<<YELLOW_CL<<"For how many hp?(Int): "<<GREEN_CL;
 						getline(std::cin, clap_str);
 						repair = str_convert(clap_str);
 						if (repair >= 0)
@@ -166,7 +170,7 @@ int	main(void){
 			}
 			
 			else if (input == "guard"){
-				std::cout<< YELLOW_CL <<"Who is guarding?(Index (2 or 3)): ";
+				std::cout<<YELLOW_CL<<"Who is guarding?(Index (2 or 3)): "<<GREEN_CL;
 				getline(std::cin, clap_str);
 				clap_i = str_convert(clap_str);
 				switch (clap_i){

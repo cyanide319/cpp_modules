@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:34 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 15:54:03 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:20:26 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #define RED_CL "\033[0;31m"
 #define YELLOW_CL "\033[0;33m"
 #define PINK_CL "\033[38;2;255;192;203m"
+#define GREEN_CL "\033[0;32m"
 
 class ClapTrap{
     public:
