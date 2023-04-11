@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 16:53:06 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:00:58 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int	main(void){
 	
 		if (std::cin.good()){
 			print_tab(clap, scav);
-			std::cout<<YELLOW_CL<<"<name> Create your own claptrap!"<<std::endl<<
-			"<attack> Attack another claptrap!"<<std::endl<<
-			"<repair> Repair a claptrap!"<<std::endl<<
-			"<guard> Your scavtrap enter guard mode!"<<std::endl<<
-			"<exit>"<<std::endl<<GREEN_CL;
+			std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"name"<<YELLOW_CL <<"> Create your own claptrap!"<<std::endl<<
+			"<"<<PINK_CL << "attack"<<YELLOW_CL <<"> Attack another claptrap!"<<std::endl<<
+			"<"<<PINK_CL <<"repair"<<YELLOW_CL<<"> Repair a claptrap!"<<std::endl<<
+			"<"<<PINK_CL <<"guard"<<YELLOW_CL<<"> Your scavtrap enter guard mode!"<<std::endl<<
+			"<"<<PINK_CL <<"exit"<<YELLOW_CL<<">"<<std::endl<<GREEN_CL;
 			getline(std::cin, input);
 	
 			if(input == "name"){
