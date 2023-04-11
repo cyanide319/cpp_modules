@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 16:43:40 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:53:06 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	main(void){
 			getline(std::cin, input);
 	
 			if(input == "name"){
-
 				std::cout<<YELLOW_CL<<"Which one do you want to modify?(Index): "<<GREEN_CL;
 				getline(std::cin, clap_str);
 				clap_i = str_convert(clap_str);
