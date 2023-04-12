@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 12:26:33 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 18:55:59 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/11 18:54:50 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/11 18:57:25 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #pragma once
 
 #include"ClapTrap.hpp"
 #include<iostream>
 
-class ScavTrap: public ClapTrap{
+class FragTrap: public ClapTrap{
     public:
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap& new_object);
-        virtual ~ScavTrap();
+        FragTrap();
+        FragTrap(std::string name);
+        FragTrap(const FragTrap& new_object);
+        virtual ~FragTrap();
 
-		void			set_guard_mode(bool new_val);
+		void		highFivesGuys(void);
 
-		bool			get_guard_mode(void) const;
-		
-		virtual void 	takeDamage(unsigned int amount);
-		void			guardGate(void);
-
-		ScavTrap& 	operator=(const ScavTrap& other);
-	private:
-		bool						_guard_mode;
-		static const int			_guard_dr = 5;
+		FragTrap& 	operator=(const FragTrap& other);
 };
 
 #endif
