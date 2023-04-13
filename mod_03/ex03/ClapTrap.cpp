@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:37 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/12 19:06:53 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:28:46 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ClapTrap::ClapTrap():_hit_point(_clap_hit_point),
 	_energy_point(_clap_energy_point),
 	_attack_damage(_clap_attack_damage),
 	_name("Claptrap"), _type("Claptrap "){
+	set_max_hit_point(10);
 	std::cout<< RED_CL <<"ClapTrap Default constructor"<<std::endl;}
 //NAMED CONSTRUCT
 ClapTrap::ClapTrap(std::string name):_hit_point(_clap_hit_point),
@@ -33,6 +34,7 @@ ClapTrap::~ClapTrap(){std::cout<< RED_CL <<"ClapTrap Destructor"<<std::endl;}
 void	ClapTrap::set_name(std::string new_val){this->_name = new_val;}
 void	ClapTrap::set_type(std::string new_val){this->_type = new_val;}
 void	ClapTrap::set_hit_point(int new_val){this->_hit_point = new_val;}
+void	ClapTrap::set_max_hit_point(int new_val){this->_max_hit_point = new_val;}
 void	ClapTrap::set_energy_point(int new_val){this->_energy_point = new_val;}
 void	ClapTrap::set_attack_damage(int new_val){this->_attack_damage = new_val;}
 //GETTERS

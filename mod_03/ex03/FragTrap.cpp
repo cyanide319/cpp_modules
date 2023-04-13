@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:54:46 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/12 19:08:48 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:27:40 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 //DEFAULT CONSTRUCT
 FragTrap::FragTrap(){set_hit_point(_frag_hit_point);
+	set_max_hit_point(100);
 	set_energy_point(_frag_energy_point);
 	set_attack_damage(_frag_attack_damage);
 	set_name("FragTrap"); set_type("Fragtrap ");
@@ -30,6 +31,7 @@ std::cout<< RED_CL <<"FragTrap Copy constructor"<<std::endl;}
 //DESTRUCTOR
 FragTrap::~FragTrap(){std::cout<< RED_CL <<"FragTrap Destructor"<<std::endl;}
 
+//MEMBER FUNCTIONS
 void	FragTrap::highFivesGuys(void){
 	if(get_hit_point() > 0){
 		if (get_energy_point() > 0){

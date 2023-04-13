@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:54:50 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/12 19:08:22 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:33:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class FragTrap: virtual public ClapTrap{
 		static const int	_frag_hit_point = 100;
 		static const int	_frag_energy_point = 100;
 		static const int	_frag_attack_damage = 30;
-		static const int	_max_hit_point = _frag_hit_point;
 };
 
 #endif

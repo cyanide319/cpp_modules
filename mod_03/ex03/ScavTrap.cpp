@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:26:31 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/12 19:07:34 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:27:51 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 //DEFAULT CONSTRUCT
 ScavTrap::ScavTrap(){set_hit_point(_scav_hit_point);
+	set_max_hit_point(100);
 	set_energy_point(_scav_energy_point);
 	set_attack_damage(_scav_attack_damage);
 	set_guard_mode(false);

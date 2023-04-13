@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/12 16:45:37 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:44:23 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,28 @@
 void	print_tab(ClapTrap& clap, ScavTrap& scav, FragTrap& frag, DiamondTrap& diam){
 	int	i = 0;
 	std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
-	<< BLUE_CL << "|Name:" << PINK_CL << std::setw(10) << clap.get_name() 
+	<< BLUE_CL << "|Name:" << PINK_CL << std::setw(15) << clap.get_name() 
 	<<	BLUE_CL << "|HP:" << PINK_CL << std::setw(4) << clap.get_hit_point() 
 	<<	BLUE_CL << "|Energy:" << PINK_CL << std::setw(4) << clap.get_energy_point()
 	<<	BLUE_CL << "|DMG:" << PINK_CL << std::setw(4) << clap.get_attack_damage()
 	<<	BLUE_CL << "|" << std::endl;
 	i++;
 	std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
-	<< BLUE_CL << "|Name:" << PINK_CL << std::setw(10) << frag.get_name() 
+	<< BLUE_CL << "|Name:" << PINK_CL << std::setw(15) << frag.get_name() 
 	<<	BLUE_CL << "|HP:" << PINK_CL << std::setw(4) << frag.get_hit_point() 
 	<<	BLUE_CL << "|Energy:" << PINK_CL << std::setw(4) << frag.get_energy_point()
 	<<	BLUE_CL << "|DMG:" << PINK_CL << std::setw(4) << frag.get_attack_damage()
 	<<	BLUE_CL << "|" << std::endl;
 	i++;
 	std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
-	<<	BLUE_CL << "|Name:"<< PINK_CL << std::setw(10) << diam.get_name() 
+	<<	BLUE_CL << "|Name:"<< PINK_CL << std::setw(15) << diam.get_name() 
 	<<	BLUE_CL << "|HP:"<< PINK_CL << std::setw(4) << diam.get_hit_point() 
 	<<	BLUE_CL << "|Energy:"<< PINK_CL << std::setw(4) << diam.get_energy_point()
 	<<	BLUE_CL << "|DMG:"<< PINK_CL << std::setw(4) << diam.get_attack_damage()
 	<<	BLUE_CL << "|"<< std::endl;
 	i++;
 	std::cout<< BLUE_CL << "|Index:" << PINK_CL << std::setw(4) << i
-	<<	BLUE_CL << "|Name:"<< PINK_CL << std::setw(10) << scav.get_name() 
+	<<	BLUE_CL << "|Name:"<< PINK_CL << std::setw(15) << scav.get_name() 
 	<<	BLUE_CL << "|HP:"<< PINK_CL << std::setw(4) << scav.get_hit_point() 
 	<<	BLUE_CL << "|Energy:"<< PINK_CL << std::setw(4) << scav.get_energy_point()
 	<<	BLUE_CL << "|DMG:"<< PINK_CL << std::setw(4) << scav.get_attack_damage()
@@ -87,6 +87,7 @@ int	main(void){
 			"<"<<PINK_CL <<"repair"<<YELLOW_CL<<"> Repair a claptrap!"<<std::endl<<
 			"<"<<PINK_CL <<"guard"<<YELLOW_CL<<"> Your scavtrap enter guard mode!"<<std::endl<<
 			"<"<<PINK_CL <<"high"<<YELLOW_CL<<"> ...High fives!"<<std::endl<<
+			"<"<<PINK_CL <<"who"<<YELLOW_CL<<"> ...Who are YOU?"<<std::endl<<
 			"<"<<PINK_CL <<"exit"<<YELLOW_CL<<">"<<std::endl<<GREEN_CL;
 			getline(std::cin, input);
 	
@@ -263,14 +264,11 @@ int	main(void){
 			}
 			
 			else if (input == "guard"){
-				std::cout<<YELLOW_CL<<"Who is guarding?(Index (2 or 3)): "<<GREEN_CL;
-				getline(std::cin, clap_str);
-				clap_i = str_convert(clap_str);
-				switch (clap_i){
-					case 3:
-						scav.guardGate();
-				}
-				
+					scav.guardGate();				
+			}
+
+			else if (input == "who"){
+					diam.whoAmI();				
 			}
 
 			else if (input == "high"){
