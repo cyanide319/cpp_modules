@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:21:05 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/13 18:30:39 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:56:54 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ std::string	Animal::getType() const{return (type);}
 void	Animal::setType(std::string new_val){this->type = new_val;}
 
 //MEMBER FUNCTIONS
-void	Animal::makeSound() const{std::cout<<"whatever"<<std::endl;}
+void	Animal::makeSound() const{std::cout<<"Whatever"<<std::endl;}
 
 //COPY ASSIGMENT OVERLOAD
 Animal& Animal::operator=(const Animal& other){

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 12:55:32 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/14 12:35:48 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/14 12:49:39 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Dog.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-//DEFAULT CONSTRUCTOR
-Dog::Dog(){setType("Dog");}
+#pragma once
 
-//COPY CONSTRUCTOR
-Dog::Dog(const Dog& new_object){*this = new_object;}
+#include<iostream>
+#include"WrongAnimal.hpp"
 
-//DESTRUCTOR
-Dog::~Dog(){}
+class WrongCat: public WrongAnimal{
+	public:
+		WrongCat();
+		WrongCat(const WrongCat& new_object);
+		virtual ~WrongCat();
 
-//MEMBER FUNCTIONS
-void	Dog::makeSound() const{std::cout<<"Woofwoof motherfucker"<<std::endl;}
+		WrongCat& operator=(const WrongCat& other);
+};
 
-//COPY ASSIGMENT OVERLOAD
-Dog& Dog::operator=(const Dog& other){
-    if (this != &other){
-		this->type = other.type;
-	}
-    return (*this);
-}
+#endif

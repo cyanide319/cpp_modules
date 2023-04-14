@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:12:00 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/13 18:21:43 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:36:12 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ class Dog: public Animal{
 		virtual void makeSound() const;
 
 		Dog& operator=(const Dog& other);
-	// private:
-	// 	const std::string	sound;
-	
 };
 
 #endif

@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:11:56 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 12:36:05 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/14 12:36:17 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/14 12:52:40 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #pragma once
 
 #include<iostream>
-#include"Animal.hpp"
 
-class Cat: public Animal{
+class WrongAnimal{
 	public:
-		Cat();
-		Cat(const Cat& new_object);
-		virtual ~Cat();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& new_object);
+		virtual ~WrongAnimal();
 
-		virtual void makeSound()const;
+		//GETTER/SETTER
+		std::string		getType() const;
 
-		Cat& operator=(const Cat& other);
+		void			setType(std::string new_val);
+		//MEMBER FUNCTIONS
+		void			makeSound() const;
 
+		WrongAnimal& operator=(const WrongAnimal& other);
+	protected:
+		std::string	type;
 };
 
 #endif

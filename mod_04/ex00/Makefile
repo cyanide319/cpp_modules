@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/04/13 18:16:48 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/04/14 12:54:19 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRCS = main.cpp \
 		Cat.cpp \
 		Dog.cpp \
 		Animal.cpp \
+		WrongCat.cpp \
+		WrongAnimal.cpp \
 
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
