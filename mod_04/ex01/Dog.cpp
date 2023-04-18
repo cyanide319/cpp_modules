@@ -6,25 +6,23 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 14:17:09 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:55:32 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Dog.hpp"
 
-//GREEN
-
 //DEFAULT CONSTRUCTOR
-Dog::Dog(){setType("Dog");std::cout<< GREEN_CL <<"Default dog constructor"<<std::endl << WHITE_CL;}
+Dog::Dog(){setType("Dog");}
 
 //COPY CONSTRUCTOR
-Dog::Dog(const Dog& new_object){*this = new_object;std::cout<< GREEN_CL <<"Copy dog constructor"<<std::endl << WHITE_CL;}
+Dog::Dog(const Dog& new_object){*this = new_object;}
 
 //DESTRUCTOR
-Dog::~Dog(){std::cout<< GREEN_CL <<"Default dog destructor"<<std::endl << WHITE_CL;}
+Dog::~Dog(){}
 
 //MEMBER FUNCTIONS
-void	Dog::makeSound() const{std::cout<< GREEN_CL <<"Woofwoof motherfucker"<<std::endl << WHITE_CL;}
+void	Dog::makeSound() const{std::cout<<"Woofwoof motherfucker"<<std::endl;}
 
 //COPY ASSIGMENT OVERLOAD
 Dog& Dog::operator=(const Dog& other){

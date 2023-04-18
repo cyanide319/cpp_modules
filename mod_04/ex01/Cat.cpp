@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 14:17:09 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/13 17:48:30 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/18 13:00:47 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Dog.hpp"
-
-//GREEN
+#include"Cat.hpp"
 
 //DEFAULT CONSTRUCTOR
-Dog::Dog(){setType("Dog");std::cout<< GREEN_CL <<"Default dog constructor"<<std::endl << WHITE_CL;}
+Cat::Cat(){
+	setType("Cat");
+	_brain = new Brain();
+}
 
 //COPY CONSTRUCTOR
-Dog::Dog(const Dog& new_object){*this = new_object;std::cout<< GREEN_CL <<"Copy dog constructor"<<std::endl << WHITE_CL;}
+Cat::Cat(const Cat& new_object){*this = new_object;}
 
 //DESTRUCTOR
-Dog::~Dog(){std::cout<< GREEN_CL <<"Default dog destructor"<<std::endl << WHITE_CL;}
+Cat::~Cat(){delete _brain;}
 
 //MEMBER FUNCTIONS
-void	Dog::makeSound() const{std::cout<< GREEN_CL <<"Woofwoof motherfucker"<<std::endl << WHITE_CL;}
+void	Cat::makeSound() const{std::cout<<"Meowmeow caliss"<<std::endl;}
 
 //COPY ASSIGMENT OVERLOAD
-Dog& Dog::operator=(const Dog& other){
+Cat& Cat::operator=(const Cat& other){
     if (this != &other){
 		this->type = other.type;
 	}

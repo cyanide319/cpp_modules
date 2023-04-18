@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 14:17:09 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/13 17:21:05 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/14 12:56:54 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Dog.hpp"
-
-//GREEN
+#include"Animal.hpp"
 
 //DEFAULT CONSTRUCTOR
-Dog::Dog(){setType("Dog");std::cout<< GREEN_CL <<"Default dog constructor"<<std::endl << WHITE_CL;}
+Animal::Animal(){}
 
 //COPY CONSTRUCTOR
-Dog::Dog(const Dog& new_object){*this = new_object;std::cout<< GREEN_CL <<"Copy dog constructor"<<std::endl << WHITE_CL;}
+Animal::Animal(const Animal& new_object){*this = new_object;}
 
 //DESTRUCTOR
-Dog::~Dog(){std::cout<< GREEN_CL <<"Default dog destructor"<<std::endl << WHITE_CL;}
+Animal::~Animal(){}
+
+//GETTER
+std::string	Animal::getType() const{return (type);}
+//SETTER
+void	Animal::setType(std::string new_val){this->type = new_val;}
 
 //MEMBER FUNCTIONS
-void	Dog::makeSound() const{std::cout<< GREEN_CL <<"Woofwoof motherfucker"<<std::endl << WHITE_CL;}
+void	Animal::makeSound() const{std::cout<<"Whatever"<<std::endl;}
 
 //COPY ASSIGMENT OVERLOAD
-Dog& Dog::operator=(const Dog& other){
+Animal& Animal::operator=(const Animal& other){
     if (this != &other){
 		this->type = other.type;
 	}

@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 18:54:50 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/18 17:18:18 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/13 17:11:56 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/18 13:01:03 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #pragma once
 
-#include"ClapTrap.hpp"
 #include<iostream>
+#include"Animal.hpp"
+#include"Brain.hpp"
 
-class FragTrap: public ClapTrap{
-    public:
-        FragTrap();
-        FragTrap(std::string name);
-        FragTrap(const FragTrap& new_object);
-        virtual ~FragTrap();
+class Cat: public Animal{
+	public:
+		Cat();
+		Cat(const Cat& new_object);
+		virtual ~Cat();
 
-		void		highFivesGuys(void);
+		virtual void makeSound()const;
 
-		FragTrap& 	operator=(const FragTrap& other);
+		Cat& operator=(const Cat& other);
+	private:
+		Brain	*_brain;
+
 };
 
 #endif
