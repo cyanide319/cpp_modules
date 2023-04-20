@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:27:37 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/18 12:46:36 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:59:53 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class Brain{
 	public:
 		Brain();
+		Brain(std::string* new_ideas);
 		Brain(const Brain& new_object);
 		virtual ~Brain();
 

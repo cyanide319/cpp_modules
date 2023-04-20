@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:29:37 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/11 16:01:11 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:55:24 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ClapTrap::takeDamage(unsigned int amount){if (amount < 0)	amount = 0;
 	if (total < 0) total = 0;
 	set_hit_point(total);
 }
-
 
 void	ClapTrap::beRepaired(unsigned int amount){
 	if(get_hit_point() > 0){

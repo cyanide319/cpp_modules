@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:12:00 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/14 12:36:12 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:03:43 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@
 
 #include<iostream>
 #include"Animal.hpp"
+#include"Brain.hpp"
 
 class Dog: public Animal{
 	public:
 		Dog();
+		Dog(std::string* new_ideas);
 		Dog(const Dog& new_object);
 		virtual ~Dog();
+
+		virtual Brain& get_brain() const;
 
 		virtual void makeSound() const;
 
 		Dog& operator=(const Dog& other);
+	private:
+		Brain*	_brain;
 };
 
 #endif
