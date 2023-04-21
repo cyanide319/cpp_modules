@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:11:56 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/21 13:44:47 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/13 17:12:00 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/19 15:03:43 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #pragma once
 
@@ -19,21 +19,20 @@
 #include"Animal.hpp"
 #include"Brain.hpp"
 
-class Cat: public Animal{
+class Dog: public Animal{
 	public:
-		Cat();
-		Cat(std::string* new_ideas);
-		Cat(const Cat& new_object);
-		virtual ~Cat();
+		Dog();
+		Dog(std::string* new_ideas);
+		Dog(const Dog& new_object);
+		virtual ~Dog();
 
-		// virtual Brain& get_brain() const;
+		virtual Brain& get_brain() const;
 
-		virtual void makeSound()const;
+		virtual void makeSound() const;
 
-		Cat& operator=(const Cat& other);
+		Dog& operator=(const Dog& other);
 	private:
-		Brain	*_brain;
-
+		Brain*	_brain;
 };
 
 #endif

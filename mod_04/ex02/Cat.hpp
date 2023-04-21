@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:11:56 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/21 13:44:47 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:02:17 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cat: public Animal{
 		Cat(const Cat& new_object);
 		virtual ~Cat();
 
-		// virtual Brain& get_brain() const;
+		virtual Brain& get_brain() const;
 
 		virtual void makeSound()const;
 

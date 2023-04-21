@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/21 13:47:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/20 17:17:24 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ Dog::Dog(std::string* new_ideas): _brain(new Brain(new_ideas)){ setType("Dog"); 
 Dog::Dog(const Dog& new_object): Animal(new_object), _brain(nullptr){
 	if (new_object._brain)
 		_brain = new Brain(*new_object._brain);
+	// delete _brain;
+	// _brain = new Brain(new_object.get_brain());
+	// *this = new_object;
 	std::cout<< GREEN_CL <<"Copy dog constructor"<<std::endl << WHITE_CL;}
 
 //DESTRUCTOR
 Dog::~Dog(){delete _brain; std::cout<< GREEN_CL <<"Default dog destructor"<<std::endl << WHITE_CL;}
 
-// Brain& Dog::get_brain() const{return (*this->_brain);}
+Brain& Dog::get_brain() const{return (*this->_brain);}
 
 //MEMBER FUNCTIONS
 void	Dog::makeSound() const{std::cout<<"Woofwoof motherfucker"<<std::endl;}
@@ -35,8 +38,13 @@ void	Dog::makeSound() const{std::cout<<"Woofwoof motherfucker"<<std::endl;}
 Dog& Dog::operator=(const Dog& other){
     if (this != &other){
 		this->type = other.type;
+		int	i = 0;
 		delete _brain;
-		_brain = new Brain(*other._brain);
+		_brain = new Brain(other.get_brain());
+		while (i < 100){
+			_brain->set_ideas(i, other._brain->get_ideas(i));
+			i++;
+		}
 	}
     return (*this);
 }

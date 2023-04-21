@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:12:00 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/19 15:03:43 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:47:38 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog: public Animal{
 		Dog(const Dog& new_object);
 		virtual ~Dog();
 
-		virtual Brain& get_brain() const;
+		// virtual Brain& get_brain() const;
 
 		virtual void makeSound() const;
 

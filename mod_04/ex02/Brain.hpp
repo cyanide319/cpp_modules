@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:11:56 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/21 13:44:47 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/04/14 16:27:37 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/04/19 14:59:53 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #pragma once
 
 #include<iostream>
-#include"Animal.hpp"
-#include"Brain.hpp"
 
-class Cat: public Animal{
+class Brain{
 	public:
-		Cat();
-		Cat(std::string* new_ideas);
-		Cat(const Cat& new_object);
-		virtual ~Cat();
+		Brain();
+		Brain(std::string* new_ideas);
+		Brain(const Brain& new_object);
+		virtual ~Brain();
 
-		// virtual Brain& get_brain() const;
+		std::string	get_ideas(int i) const;
 
-		virtual void makeSound()const;
+		void	set_ideas(int i, std::string new_val);
 
-		Cat& operator=(const Cat& other);
+		Brain& operator=(const Brain& other);
 	private:
-		Brain	*_brain;
+		std::string	ideas[100];
 
 };
 

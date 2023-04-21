@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:09:59 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/21 13:46:02 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:09:25 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Animal{
 		//GETTER/SETTER
 		std::string		getType() const;
 
-		// virtual Brain& get_brain() const = 0;
+		virtual Brain& get_brain() const = 0;
 
 		void			setType(std::string new_val);
 		//MEMBER FUNCTIONS
