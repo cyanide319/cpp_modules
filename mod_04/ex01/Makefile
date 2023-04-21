@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/04/20 18:10:26 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/04/21 13:24:40 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,26 +17,19 @@ SRCS = main.cpp \
 		Dog.cpp \
 		Animal.cpp \
 		Brain.cpp \
-		# WrongAnimal.cpp \
 
-
-# CFLAGS = -Wall -Wextra -Werror -std=c++98
-# CC = c++ -g
-
-CC ?=	gcc
-CFLAGS	+= -Wall -Wextra -Werror
-CFLAGS	+= -I$I
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-CXXFLAGS	+= -I$I
-DEBUG	= -g
-SFLAGS	= -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++
 
 OBJS = $(SRCS:%cpp=%o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+.cpp.o: $(SRCS) $(OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
