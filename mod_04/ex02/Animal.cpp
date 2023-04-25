@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:21:05 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/20 17:28:37 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:20:29 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ Animal::~Animal(){std::cout<< BLUE_CL <<"Default animal destructor"<<std::endl <
 std::string	Animal::getType() const{return (type);}
 //SETTER
 void	Animal::setType(std::string new_val){this->type = new_val;}
-
-//MEMBER FUNCTIONS
-void	Animal::makeSound() const{std::cout<<"Whatever"<<std::endl;}
 
 //COPY ASSIGMENT OVERLOAD
 Animal& Animal::operator=(const Animal& other){

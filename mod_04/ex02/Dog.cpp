@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:55:54 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/20 17:17:24 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:21:08 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ Dog::Dog(std::string* new_ideas): _brain(new Brain(new_ideas)){ setType("Dog"); 
 Dog::Dog(const Dog& new_object): Animal(new_object), _brain(nullptr){
 	if (new_object._brain)
 		_brain = new Brain(*new_object._brain);
-	// delete _brain;
-	// _brain = new Brain(new_object.get_brain());
-	// *this = new_object;
 	std::cout<< GREEN_CL <<"Copy dog constructor"<<std::endl << WHITE_CL;}
 
 //DESTRUCTOR

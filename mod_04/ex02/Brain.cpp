@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:28:05 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/20 17:22:15 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:20:48 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ Brain::Brain(std::string new_ideas[100]){
 
 //COPY CONSTRUCT
 Brain::Brain(const Brain& new_object){
-	// *this = new_object;
 	int i = 0;
 	while (i < 100){
 		this->ideas[i] = new_object.get_ideas(i);

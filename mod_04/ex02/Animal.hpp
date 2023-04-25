@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:09:59 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/19 17:09:25 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:10:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Animal{
 
 		void			setType(std::string new_val);
 		//MEMBER FUNCTIONS
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 
 		Animal& operator=(const Animal& other);
 	protected:

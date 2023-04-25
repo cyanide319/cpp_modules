@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:48:30 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/04/20 17:23:43 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:20:58 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ Cat& Cat::operator=(const Cat& other){
 		Animal::operator=(other);
 		delete _brain;
 		_brain = new Brain(*other._brain);
-		// this->type = other.type;
-		// int	i = 0;
-		// // delete _brain;
-		// // *this->_brain = other.get_brain();
-		// while (i < 100){
-		// 	_brain->set_ideas(i, other._brain->get_ideas(i));
-		// 	i++;
-		// }
 	}
     return (*this);
 }
