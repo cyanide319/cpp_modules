@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:24 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/16 16:53:34 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/17 14:51:38 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@
 #define GREEN_CL "\033[0;32m"
 
 #include<iostream>
+#include<string>
+#include<exception>
 
 class Bureaucrat{
     public:
-		Bureaucrat(std::string name);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& new_object);
 		~Bureaucrat();
 
@@ -35,9 +37,17 @@ class Bureaucrat{
 		std::string	get_name(void) const;
 		int			get_grade(void) const;
 
-        int			GradeTooHighException(int wrongGrade);
-		int			GradeTooLowException(int wrongGrade);
+		void	grade_up();
+		void	grade_down();
 
+		class GradeTooHighException: public std::exception{
+			public:
+				const char * what() const throw();
+		};
+		class GradeTooLowException: public std::exception{
+			public:
+				const char * what() const throw();
+		};
 
 		Bureaucrat& operator=(const Bureaucrat& other);
 
