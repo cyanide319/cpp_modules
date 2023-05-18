@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/18 13:24:41 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 14:18:34 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #pragma once
 
 #include<iostream>
+#include<exception>
+#include"Bureaucrat.hpp"
 
 class Form{
 	public:
@@ -29,6 +31,17 @@ class Form{
 		bool		get_signed(void) const;
 
 		void		set_signed(bool new_val);
+
+		int		beSigned(Bureaucrat& bureaucrat);
+
+		class GradeTooHighException: public std::exception{
+			public:
+				const char * what() const throw();
+		};
+		class GradeTooLowException: public std::exception{
+			public:
+				const char * what() const throw();
+		};
 
 		Form& Form::operator=(const Form& other);
 	private:

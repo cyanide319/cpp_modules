@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 13:20:05 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 14:26:15 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ void	Bureaucrat::set_grade(int new_val){
 	}
 	this->_grade = new_val;
 }
+
 //GETTER
 std::string	Bureaucrat::get_name(void) const{return(this->_name);}
 int			Bureaucrat::get_grade(void) const{return(this->_grade);}
 
+
+//FUNCTIONS
 void	Bureaucrat::grade_up(){
 	try{
 		std::cout << BLUE_CL << _name << " was grade: " << _grade << WHITE_CL << std::endl;
@@ -72,8 +75,21 @@ void	Bureaucrat::grade_down(){
 	
 }
 
+void	Bureaucrat::signForm(Form& form){
+	try
+	{
+		if (form.beSigned(*this) == 0)
+			std::cout << _name << " signed the " << form.get_name() << " form successfully!" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << "couldn't sign the " << form.get_name()<< " form because: " << e.what() << '\n';
+	}
+	
+}
 
 
+//EXCEPTIONS TRHOWS
 const char*	Bureaucrat::GradeTooHighException::what() const throw(){
 	return ("The grade is too high.\n");
 }
