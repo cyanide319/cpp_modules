@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 14:26:15 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:03:29 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	Bureaucrat::signForm(Form& form){
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << _name << "couldn't sign the " << form.get_name()<< " form because: " << e.what() << '\n';
+		std::cerr << _name << " couldn't sign the " << form.get_name()<< " form because: " << e.what() << '\n';
 	}
 	
 }

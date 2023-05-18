@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/18 14:54:50 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:10:47 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include<iostream>
 #include<exception>
 #include"Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form{
 	public:

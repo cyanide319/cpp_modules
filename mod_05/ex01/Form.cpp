@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 14:52:57 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:13:32 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ Form& Form::operator=(const Form& other){
 }
 
 std::ostream&   operator<<(std::ostream& output, const Form& form){
-	output << "The form called: " << form.get_name() 
+	output << "The form is called: " << form.get_name() 
 	<< ", can be signed at grade " << form.get_to_sign()
-	<< " and be executed at grade " << form.get_to_exec();
+	<< " and executed at grade " << form.get_to_exec();
 	if (form.get_signed() == false)
 		output << ". It is currently unsigned.";
 	else
