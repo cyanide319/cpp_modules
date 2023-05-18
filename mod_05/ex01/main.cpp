@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 12:38:40 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:47:34 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Bureaucrat.hpp"
+#include"Form.hpp"
 
 std::string	format_str(std::string str){
 	if (str.size() > 9)
@@ -23,6 +24,10 @@ std::string	format_str(std::string str){
 
 void	print_tab(Bureaucrat& dude){
 	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << dude << std::endl;
+}
+
+void	print_tab_form(Form& form){
+	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << form << std::endl;
 }
 
 //int	str_convert(std::string str){
@@ -42,15 +47,27 @@ int	main(void){
 		Bureaucrat *boris = new Bureaucrat("Boris", 150);
 		Bureaucrat *karen = new Bureaucrat("Karen", 96 );
 		Bureaucrat *robert = new Bureaucrat("Robert", 100);
+		Form un("prime", 1, 150);
+		Form deux("secundo", 100, 150);
+		Form trois("fuck", 1, 150);
+		Form quatre("anticonstitutionnellement", 1, 150);
+		
 		// Bureaucrat *fucker = new Bureaucrat("Robert", 10000);
 	
 		while(1){
 		
 			if (std::cin.good()){
+				std::cout << "--------------------------" << std::endl;
 				print_tab(*bob);
 				print_tab(*boris);
 				print_tab(*karen);
 				print_tab(*robert);
+				std::cout << "--------------------------" << std::endl;
+				print_tab_form(un);
+				print_tab_form(deux);
+				print_tab_form(trois);
+				print_tab_form(quatre);
+				std::cout << "--------------------------" << std::endl;
 				std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"Bob"<<YELLOW_CL <<">" 
 				<<YELLOW_CL<<"<"<< PINK_CL <<"Boris"<<YELLOW_CL <<">"
 				<<YELLOW_CL<<"<"<< PINK_CL <<"Karen"<<YELLOW_CL <<">"

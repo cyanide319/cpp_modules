@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 14:20:54 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 14:52:57 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool		Form::get_signed(void) const {return(this->_signed);}
 void		Form::set_signed(bool new_val){this->_signed = new_val;}
 
 //FUNCTIONS
-int		Form::beSigned(Bureaucrat& bureaucrat){
+int			Form::beSigned(Bureaucrat& bureaucrat){
 	if (bureaucrat.get_grade() <= this->get_to_sign()){
 		this->set_signed(true);
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/18 14:18:34 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 14:54:50 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Form{
 
 		void		set_signed(bool new_val);
 
-		int		beSigned(Bureaucrat& bureaucrat);
+		int			beSigned(Bureaucrat& bureaucrat);
 
 		class GradeTooHighException: public std::exception{
 			public:
@@ -43,12 +43,14 @@ class Form{
 				const char * what() const throw();
 		};
 
-		Form& Form::operator=(const Form& other);
+		Form& 		operator=(const Form& other);
 	private:
 		const	std::string	_name;
 		const	int			_to_sign;
 		const	int			_to_exec;
 		bool				_signed;
 };
+
+std::ostream&   operator<<(std::ostream& output, const Form& form);
 
 #endif
