@@ -6,19 +6,14 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/04/21 13:17:17 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/05/18 12:40:58 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = bureaucrat
 
 SRCS = main.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		Animal.cpp \
-		WrongCat.cpp \
-		WrongAnimal.cpp \
-
+		Bureaucrat.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
@@ -41,5 +36,5 @@ fclean: clean
 
 re: fclean all
 
-execute: re
+exec: re
 		./$(NAME)
