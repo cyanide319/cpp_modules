@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 16:04:59 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:34:56 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_choices(){
 	"<"<<PINK_CL <<"down"<<YELLOW_CL<<"> grade down"<<std::endl<<YELLOW_CL
 	"<"<<PINK_CL <<"1"<<YELLOW_CL<<">" "<"<<PINK_CL <<"2"<<YELLOW_CL<<">"
 	"<"<<PINK_CL <<"3"<<YELLOW_CL<<">" "<"<<PINK_CL <<"4"<<YELLOW_CL<<">"
-	 << "> to sign a form"<<std::endl<<WHITE_CL;
+	 << "> to sign a form"<<std::endl<<GREEN_CL;
 }
 
 int	choices(Bureaucrat& dude){
@@ -90,10 +90,10 @@ void	idgaf(Bureaucrat& bob, Bureaucrat& boris, Bureaucrat& karen, Bureaucrat& ro
 	print_tab_form(trois);
 	print_tab_form(quatre);
 	std::cout << "--------------------------" << std::endl;
-	std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"Bob"<<YELLOW_CL <<">" 
-	<<YELLOW_CL<<"<"<< PINK_CL <<"Boris"<<YELLOW_CL <<">"
-	<<YELLOW_CL<<"<"<< PINK_CL <<"Karen"<<YELLOW_CL <<">"
-	<<YELLOW_CL<<"<"<< PINK_CL <<"Robert"<<YELLOW_CL <<"> which one you want to change?"
+	std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"bob"<<YELLOW_CL <<">" 
+	<<YELLOW_CL<<"<"<< PINK_CL <<"boris"<<YELLOW_CL <<">"
+	<<YELLOW_CL<<"<"<< PINK_CL <<"karen"<<YELLOW_CL <<">"
+	<<YELLOW_CL<<"<"<< PINK_CL <<"robert"<<YELLOW_CL <<"> which one you want to change?"
 	<<std::endl<<"<"<<PINK_CL <<"exit"<<YELLOW_CL<<">"<<std::endl<<GREEN_CL;	
 }
 //int	str_convert(std::string str){
@@ -126,25 +126,25 @@ int	main(void){
 				idgaf(*bob, *boris, *karen, *robert, un, deux, trois, quatre);
 				getline(std::cin, input);
 				
-				if (input == "Bob"){
+				if (input == "bob"){
 					print_choices();
 					ret = choices(*bob);
 					if (ret != 0)
 						signing(*bob, un, deux, trois, quatre, ret);
 				}
-				if (input == "Boris"){
+				if (input == "boris"){
 					print_choices();
 					ret = choices(*boris);
 					if (ret != 0)
 						signing(*boris, un, deux, trois, quatre, ret);
 				}
-				if (input == "Karen"){
+				if (input == "karen"){
 					print_choices();
 					ret = choices(*karen);
 					if (ret != 0)
 						signing(*karen, un, deux, trois, quatre, ret);
 				}
-				if (input == "Robert"){
+				if (input == "robert"){
 					print_choices();
 					ret = choices(*robert);
 					if (ret != 0)

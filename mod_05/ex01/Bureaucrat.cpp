@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 16:03:29 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:39:02 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,12 @@ void	Bureaucrat::grade_down(){
 void	Bureaucrat::signForm(Form& form){
 	try
 	{
-		if (form.beSigned(*this) == 0)
+		int ret;
+		ret = form.beSigned(*this);
+		if (ret == 0)
 			std::cout << _name << " signed the " << form.get_name() << " form successfully!" << std::endl;
+		if (ret == 2)
+			std::cout << "The " << form.get_name() << " form was already signed!" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
