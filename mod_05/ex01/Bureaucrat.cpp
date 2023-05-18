@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 10:43:56 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:20:05 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name){
 }
 
 //COPY CONSTRUCT
-Bureaucrat::Bureaucrat(const Bureaucrat& new_object): _name(new_object._name){}
+Bureaucrat::Bureaucrat(const Bureaucrat& new_object): _name(new_object._name){*this = new_object;}
 
 //DEFAULT DESTRUCT
 Bureaucrat::~Bureaucrat(){}
