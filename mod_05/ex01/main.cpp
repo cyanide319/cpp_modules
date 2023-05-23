@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 13:13:59 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:12:46 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,6 @@ void	idgaf(Bureaucrat& bob, Bureaucrat& boris, Bureaucrat& karen, Bureaucrat& ro
 	<<YELLOW_CL<<"<"<< PINK_CL <<"robert"<<YELLOW_CL <<"> which one you want to change?"
 	<<std::endl<<"<"<<PINK_CL <<"exit"<<YELLOW_CL<<">"<<std::endl<<GREEN_CL;	
 }
-//int	str_convert(std::string str){
-//	int clap_i;
-//	try {clap_i = std::stoi(str);}
-//	catch (const std::exception& e) {std::cerr<< RED_CL <<"This input take an integer"<<std::endl; return (-1);}
-//	return (clap_i);
-	
-//}
 
 int	main(void){
 	std::string	input;
@@ -158,40 +151,3 @@ int	main(void){
 		std::cerr << e.what() << '\n';
 	}
 }
-
-// int	main(void){
-// 	std::string	input;
-// 	try
-// 	{
-// 		Bureaucrat *bob = new Bureaucrat("Bob", 1);	
-// 		Bureaucrat *boris = new Bureaucrat("Boris", 150);
-// 		Bureaucrat *karen = new Bureaucrat("Karen", 96 );
-// 		Bureaucrat *robert = new Bureaucrat("Robert", 100);
-
-// 		bob->grade_up();
-// 		bob->grade_down();
-// 		boris->grade_down();
-// 		boris->grade_up();
-// 		karen->grade_down();
-// 		karen->grade_up();
-// 		robert->grade_down();
-// 		robert->grade_up();
-
-// 		std::cout << bob->get_grade() << std::endl;
-// 		std::cout << boris->get_grade() << std::endl;
-// 		std::cout << karen->get_grade() << std::endl;
-// 		std::cout << robert->get_grade() << std::endl;
-		
-// 		Bureaucrat *fucker = new Bureaucrat("Robert", 10000);
-// 		fucker->get_grade();
-// 		delete bob;
-// 		delete boris;
-// 		delete karen;
-// 		delete robert;
-// 		delete fucker;
-// 	}
-// 	catch(const std::exception& e)
-// 	{
-// 		std::cerr << e.what() << '\n';
-// 	}
-// }

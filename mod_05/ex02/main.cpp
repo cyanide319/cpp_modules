@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 13:58:32 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:13:16 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,6 @@ int	main(void){
 					print_choices();
 					choices(robert, un, deux, trois);
 				}
-				
 				if (input == "exit"){
 					std::cout<< PINK_CL <<"Goodbye Friend!"<<std::endl;
 					break ;
