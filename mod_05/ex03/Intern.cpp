@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:59:30 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:34:01 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:37:09 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Form*	Intern::makeForm(std::string name, std::string target){
 
 	while (i < 3){
 		if (_forms_name[i] == name){
+			std::cout << "Intern creates " << name << std::endl;
 			switch (i)
 			{
 			case 0:
