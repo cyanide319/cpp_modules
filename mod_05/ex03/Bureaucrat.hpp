@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:24 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 16:27:02 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:20:56 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 #include<iomanip>
 #include<string>
 #include<exception>
+#include"Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     public:
@@ -41,6 +44,8 @@ class Bureaucrat{
 
 		void	grade_up();
 		void	grade_down();
+		void	signForm(Form& form);
+		void	executeForm(Form& form);
 
 		class GradeTooHighException: public std::exception{
 			public:

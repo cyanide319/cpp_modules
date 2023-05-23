@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 16:33:16 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:33:37 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Form::Form(std::string name, int to_sign, int to_exec): _name(name),
 		throw Form::GradeTooLowException();
 }
 
-//COPY CONSTRCT
+//COPY CONSTRUCT
 Form::Form(const Form& new_object):_name(new_object.get_name()),
 	_to_sign(new_object.get_to_sign()), _to_exec(get_to_exec()){
 	*this = new_object;

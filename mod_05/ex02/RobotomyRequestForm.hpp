@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:30:46 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 14:05:03 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:29:02 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Bureaucrat;
 
 class RobotomyRequestForm: public Form{
 	public:
+		RobotomyRequestForm();	
 		RobotomyRequestForm(std::string target);	
 		RobotomyRequestForm(const RobotomyRequestForm& new_object);	
 		~RobotomyRequestForm();

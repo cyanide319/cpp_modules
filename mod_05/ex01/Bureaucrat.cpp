@@ -6,13 +6,16 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/19 12:58:47 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:33:01 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 //DEFAULT CONSTRUCT
+Bureaucrat::Bureaucrat(): _name("default"), _grade(150){}
+
+//NAMED CONSTRUCT
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name){
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();

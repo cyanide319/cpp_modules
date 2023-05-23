@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 14:19:12 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:27:40 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Bureaucrat;
 
 class Form{
 	public:
+		Form();	
 		Form(std::string name, int to_sign, int to_exec);	
 		Form(const Form& new_object);	
 		~Form();

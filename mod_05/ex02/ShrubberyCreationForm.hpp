@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:26:17 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 14:05:08 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:29:11 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Bureaucrat;
 
 class ShrubberyCreationForm: public Form{
 	public:
+		ShrubberyCreationForm();	
 		ShrubberyCreationForm(std::string target);	
 		ShrubberyCreationForm(const ShrubberyCreationForm& new_object);	
 		~ShrubberyCreationForm();

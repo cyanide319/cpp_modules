@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 13:27:53 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:28:51 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/05/19 13:30:46 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/05/23 16:22:37 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #pragma once
 
+#include<thread>
+#include<chrono>
+#include<random>
 #include"Form.hpp"
 
 class Bureaucrat;
 
-class PresidentialPardonForm: public Form{
+class RobotomyRequestForm: public Form{
 	public:
-		PresidentialPardonForm();	
-		PresidentialPardonForm(std::string name);	
-		PresidentialPardonForm(const PresidentialPardonForm& new_object);	
-		~PresidentialPardonForm();
-		
+		RobotomyRequestForm();	
+		RobotomyRequestForm(std::string target);	
+		RobotomyRequestForm(const RobotomyRequestForm& new_object);	
+		~RobotomyRequestForm();
+
 		void	execute();
 
-		PresidentialPardonForm& 		operator=(const PresidentialPardonForm& other);
+		RobotomyRequestForm& 		operator=(const RobotomyRequestForm& other);
 };
 
 std::ostream&   operator<<(std::ostream& output, const Form& form);

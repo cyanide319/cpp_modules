@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:27:48 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:22:06 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ class Form{
 		Form(const Form& new_object);	
 		~Form();
 
-		std::string get_name(void) const;
-		int			get_to_sign(void) const;
-		int			get_to_exec(void) const;
-		bool		get_signed(void) const;
+		std::string 	get_name(void) const;
+		std::string 	get_target(void) const;
+		int				get_to_sign(void) const;
+		int				get_to_exec(void) const;
+		bool			get_signed(void) const;
 
-		void		set_signed(bool new_val);
+		void			set_signed(bool new_val);
+		void			set_target(std::string new_val);
 
-		int			beSigned(Bureaucrat& bureaucrat);
+		int				beSigned(const Bureaucrat& bureaucrat);
+		int				beExecuted(const Bureaucrat& bureaucrat);
+		virtual	void	execute() = 0;
 
 		class GradeTooHighException: public std::exception{
 			public:
@@ -46,9 +50,10 @@ class Form{
 				const char * what() const throw();
 		};
 
-		Form& 		operator=(const Form& other);
+		Form& 			operator=(const Form& other);
 	private:
 		const	std::string	_name;
+		std::string			_target;
 		const	int			_to_sign;
 		const	int			_to_exec;
 		bool				_signed;
