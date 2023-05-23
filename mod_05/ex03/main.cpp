@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 18:22:29 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/23 18:38:37 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include"ShrubberyCreationForm.hpp"
 #include"RobotomyRequestForm.hpp"
 #include"PresidentialPardonForm.hpp"
-#include<string>
+#include <cstdlib>
 
 void	print_tab(Bureaucrat& dude){
 	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << dude << std::endl;
@@ -42,11 +42,16 @@ void	print_choices(){
 	"<"<<PINK_CL <<"sign"<<YELLOW_CL<<"> to sign a form"<<std::endl;
 }
 
-int	str_convert(std::string str){
+int	str_convert(std::string& str){
 	int i;
-	try {i = std::stoi(str);}
-	catch (const std::exception& e) {std::cerr<< RED_CL <<"This input take an integer between 0 and 9"<<std::endl; return (-1);}
-	return (i);	
+	try{
+    	i = std::atoi(str.c_str());
+	}
+	catch(const std::exception& e){
+		std::cerr << e.what() << '\n';
+	}
+	
+    return i;
 }
 
 void	choices(Bureaucrat& dude, Form* array){
@@ -62,6 +67,7 @@ void	choices(Bureaucrat& dude, Form* array){
 		print_form_choice();
 		getline(std::cin, input);
 		i = str_convert(input);
+		
 		if (i < 0 || i > 9){
 			std::cout<<"Need to be between 0 and 9"<<std::endl;
 			return ;
