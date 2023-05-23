@@ -6,22 +6,16 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/19 17:16:46 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:58:32 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<cstdlib>
 #include"Bureaucrat.hpp"
 #include"Form.hpp"
 #include"ShrubberyCreationForm.hpp"
-
-std::string	format_str(std::string str){
-	if (str.size() > 9)
-	{
-		str.resize(9);
-		str.append(".");
-	}
-	return (str);
-}
+#include"RobotomyRequestForm.hpp"
+#include"PresidentialPardonForm.hpp"
 
 void	print_tab(Bureaucrat& dude){
 	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << dude << std::endl;
@@ -67,11 +61,11 @@ void	choices(Bureaucrat& dude, Form& un, Form& deux, Form& trois){
 		print_form_choice();
 		getline(std::cin, input);
 		if (input == "1")
-			un.execute(dude);
+			dude.executeForm(un);
 		if (input == "2")
-			deux.execute(dude);
+			dude.executeForm(deux);
 		if (input == "3")
-			trois.execute(dude);
+			dude.executeForm(trois);
 	}
 }
 
@@ -97,15 +91,19 @@ int	main(void){
 	std::string	input;
 	try
 	{
+		const char* userVar = std::getenv("USER");
+		std::string	var;
+		if (userVar != nullptr)
+			var = userVar;
+		else
+			var = "Whatever";
 		Bureaucrat bob("Bob", 1);	
 		Bureaucrat boris("Boris", 150);
 		Bureaucrat karen("Karen", 96 );
 		Bureaucrat robert("Robert", 100);
 		ShrubberyCreationForm un("the outdoor sucks");
-		ShrubberyCreationForm deux("war crimes");
-		ShrubberyCreationForm trois("facism 101");
-		
-		// Bureaucrat *fucker = new Bureaucrat("Robert", 10000);
+		RobotomyRequestForm deux("Manon");
+		PresidentialPardonForm trois(var);
 	
 		while(1){
 		

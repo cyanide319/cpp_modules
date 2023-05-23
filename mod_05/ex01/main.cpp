@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 16:34:56 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/23 13:13:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Bureaucrat.hpp"
 #include"Form.hpp"
-
-std::string	format_str(std::string str){
-	if (str.size() > 9)
-	{
-		str.resize(9);
-		str.append(".");
-	}
-	return (str);
-}
 
 void	print_tab(Bureaucrat& dude){
 	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << dude << std::endl;
@@ -118,8 +109,6 @@ int	main(void){
 		Form trois("fuck", 150, 150);
 		Form quatre("anticonstitutionnellement", 69, 150);
 		
-		// Bureaucrat *fucker = new Bureaucrat("Robert", 10000);
-	
 		while(1){
 		
 			if (std::cin.good()){
@@ -163,7 +152,6 @@ int	main(void){
 		delete boris;
 		delete karen;
 		delete robert;
-		// delete fucker;
 	}
 	catch(const std::exception& e)
 	{

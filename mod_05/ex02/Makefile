@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/19 16:13:23 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/05/23 13:11:52 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = bureaucrat
 SRCS = main.cpp \
 		Form.cpp \
 		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
 		Bureaucrat.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98

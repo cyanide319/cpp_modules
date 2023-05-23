@@ -6,33 +6,15 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 12:38:40 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:13:20 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Bureaucrat.hpp"
 
-std::string	format_str(std::string str){
-	if (str.size() > 9)
-	{
-		str.resize(9);
-		str.append(".");
-	}
-	return (str);
-}
-
 void	print_tab(Bureaucrat& dude){
 	std::cout<< BLUE_CL<< "|Name:" << PINK_CL  << std::setw(1) << dude << std::endl;
 }
-
-//int	str_convert(std::string str){
-//	int clap_i;
-//	try {clap_i = std::stoi(str);}
-//	catch (const std::exception& e) {std::cerr<< RED_CL <<"This input take an integer"<<std::endl; return (-1);}
-//	return (clap_i);
-	
-//}
-
 
 int	main(void){
 	std::string	input;
@@ -42,7 +24,6 @@ int	main(void){
 		Bureaucrat *boris = new Bureaucrat("Boris", 150);
 		Bureaucrat *karen = new Bureaucrat("Karen", 96 );
 		Bureaucrat *robert = new Bureaucrat("Robert", 100);
-		// Bureaucrat *fucker = new Bureaucrat("Robert", 10000);
 	
 		while(1){
 		
@@ -111,7 +92,6 @@ int	main(void){
 		delete boris;
 		delete karen;
 		delete robert;
-		// delete fucker;
 	}
 	catch(const std::exception& e)
 	{

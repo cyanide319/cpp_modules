@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/18 16:37:02 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/23 14:05:26 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,26 @@ bool		Form::get_signed(void) const {return(this->_signed);}
 void		Form::set_signed(bool new_val){this->_signed = new_val;}
 
 //FUNCTIONS
-int			Form::beSigned(Bureaucrat& bureaucrat){
+int			Form::beSigned(const Bureaucrat& bureaucrat){
 	if (bureaucrat.get_grade() <= this->get_to_sign()){
 		if (get_signed() == true)
 			return (2);
 		this->set_signed(true);
 		return (0);
+	}
+	throw Form::GradeTooLowException();
+	return (1);
+}
+
+int			Form::beExecuted(const Bureaucrat& bureaucrat){
+	if (bureaucrat.get_grade() <= this->get_to_sign()){
+		if (get_signed() == true){
+			execute();
+			return (0);
+		}
+		else{
+			return(2);
+		}
 	}
 	throw Form::GradeTooLowException();
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/19 16:16:46 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:05:19 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ class Form{
 
 		void			set_signed(bool new_val);
 
-		int				beSigned(Bureaucrat& bureaucrat);
-		virtual	void	execute(const Bureaucrat& bureaucrat) = 0;
+		int				beSigned(const Bureaucrat& bureaucrat);
+		int				beExecuted(const Bureaucrat& bureaucrat);
+		virtual	void	execute() = 0;
 
 		class GradeTooHighException: public std::exception{
 			public:

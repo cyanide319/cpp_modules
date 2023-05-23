@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:30:46 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/19 14:11:44 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:05:03 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 
 #pragma once
 
+#include<thread>
+#include<chrono>
+#include<random>
 #include"Form.hpp"
 
 class Bureaucrat;
 
-class RobotomyRequestForm{
+class RobotomyRequestForm: public Form{
 	public:
 		RobotomyRequestForm(std::string target);	
 		RobotomyRequestForm(const RobotomyRequestForm& new_object);	
 		~RobotomyRequestForm();
 
-		std::string get_name(void) const;
-		int			get_to_sign(void) const;
-		int			get_to_exec(void) const;
-		bool		get_signed(void) const;
-
-		void	set_signed(bool new_val);
-
-		virtual int		beSigned(Bureaucrat& bureaucrat) = 0;
+		void	execute();
 
 		RobotomyRequestForm& 		operator=(const RobotomyRequestForm& other);
 };
