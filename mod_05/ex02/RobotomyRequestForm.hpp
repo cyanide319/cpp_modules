@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:30:46 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:29:02 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:52:57 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 #pragma once
 
-#include<thread>
-#include<chrono>
-#include<random>
+#include <cstdlib>
+#include <ctime>
 #include"Form.hpp"
 
 class Bureaucrat;

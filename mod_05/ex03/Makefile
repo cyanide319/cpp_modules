@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/23 13:11:52 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/05/23 19:02:18 by tristan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = bureaucrat
 
 SRCS = main.cpp \
 		Form.cpp \
+		Intern.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
