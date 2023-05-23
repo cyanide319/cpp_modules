@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 14:05:26 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:19:03 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ Form::~Form(){}
 
 //GETTERS
 std::string Form::get_name(void) const {return(this->_name);}
+std::string Form::get_target(void) const {return(this->_target);}
 int			Form::get_to_sign(void) const {return(this->_to_sign);}
 int			Form::get_to_exec(void) const {return(this->_to_exec);}
 bool		Form::get_signed(void) const {return(this->_signed);}
 
 //SETTERS
 void		Form::set_signed(bool new_val){this->_signed = new_val;}
+void		Form::set_target(std::string new_val){this->_target = new_val;}
 
 //FUNCTIONS
 int			Form::beSigned(const Bureaucrat& bureaucrat){

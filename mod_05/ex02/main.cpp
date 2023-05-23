@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 14:13:16 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:25:49 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ int	main(void){
 		Bureaucrat boris("Boris", 150);
 		Bureaucrat karen("Karen", 96 );
 		Bureaucrat robert("Robert", 100);
-		ShrubberyCreationForm un("the outdoor sucks");
-		RobotomyRequestForm deux("Manon");
+		ShrubberyCreationForm un("the_outdoor_sucks");
+		RobotomyRequestForm deux(var);
 		PresidentialPardonForm trois(var);
 	
 		while(1){

@@ -6,13 +6,14 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:33 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 14:04:36 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:23:39 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):Form(target, 72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target):
+Form("Robotomy Request", 72, 45){set_target(target);}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& new_object):
 Form(new_object.get_name(), 72, 45){
@@ -35,7 +36,7 @@ void	RobotomyRequestForm::execute(){
 	int randomNumber = distribution(generator);
 	if (randomNumber > 50)
 		std::cout << "The procedure is a success! The vict...Uh...The target: "
-			<< get_name() <<" as been robotomized!" << std::endl;
+			<< get_target() <<" as been robotomized!" << std::endl;
 	else
 		std::cout << "Something totally out of our control failed. "
 			"This is not covered by your insurance and you will be charged for the cleaning. "
@@ -46,6 +47,7 @@ void	RobotomyRequestForm::execute(){
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& other){
 	if (this != &other){
         this->set_signed(other.get_signed());
+		this->set_target(other.get_target());
     }
     return(*this);
 }
