@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 19:00:34 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/24 17:51:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,25 @@ Form(new_object.get_name(), 145, 137){
 //DEFAULT DESTRUCT
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
-void	ShrubberyCreationForm::execute(){
-	std::string outfile = (get_target() + "_shrubbery");
-	std::ofstream	Outfile(outfile.c_str());
-	Outfile << "      /\\          /\\          /\\          /\\  " << std::endl
-			<< "     /||\\        /||\\        /||\\        /||\\  " << std::endl
-			<< "    /||||\\      /||||\\      /||||\\      /||||\\ " << std::endl
-			<< "   /||||||\\    /||||||\\    /||||||\\    /||||||\\" << std::endl
-			<< "  /||||||||\\  /||||||||\\  /||||||||\\  /||||||||\\" << std::endl
-			<< "      ||          ||          ||          ||" << std::endl;
+int	ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const{
+	if (bureaucrat.get_grade() <= this->get_to_sign()){
+		if (get_signed() == true){
+		std::string outfile = (get_target() + "_shrubbery");
+		std::ofstream	Outfile(outfile.c_str());
+		Outfile << "      /\\          /\\          /\\          /\\  " << std::endl
+				<< "     /||\\        /||\\        /||\\        /||\\  " << std::endl
+				<< "    /||||\\      /||||\\      /||||\\      /||||\\ " << std::endl
+				<< "   /||||||\\    /||||||\\    /||||||\\    /||||||\\" << std::endl
+				<< "  /||||||||\\  /||||||||\\  /||||||||\\  /||||||||\\" << std::endl
+				<< "      ||          ||          ||          ||" << std::endl;
+			return (0);
+		}
+		else{
+			return(2);
+		}
+	}
+	throw Form::GradeTooLowException();
+	return (1);
 }
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other){

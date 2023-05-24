@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:59:30 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 19:10:45 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/24 17:58:07 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Intern::Intern(){
 }
 
 //COPY CONSTRUCT
-Intern::Intern(Intern& new_object){*this = new_object;}
+Intern::Intern(const Intern& new_object){*this = new_object;}
 
 //DEFAULT DESTRUCT
 Intern::~Intern(){}
@@ -45,4 +45,14 @@ Form*	Intern::makeForm(std::string name, std::string target){
 	}
 	std::cout << "Wrong form name. Try: Robotomy, Presidential or Shrubbery." << std::endl;
 	return (NULL);
+}
+
+//OVERLOADS
+Intern& Intern::operator=(const Intern& other){
+    if(this != &other){
+        this->_forms_name[0] = other._forms_name[0];
+        this->_forms_name[1] = other._forms_name[1];
+        this->_forms_name[2] = other._forms_name[2];
+    }
+    return(*this);
 }

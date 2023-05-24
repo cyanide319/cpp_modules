@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 20:04:47 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/24 17:37:12 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	Bureaucrat::signForm(Form& form){
 void	Bureaucrat::executeForm(Form& form){
 	try{
 		int ret;
-		ret = form.beExecuted(*this);
+		ret = form.execute(*this);
 		if (ret == 0)
 			std::cout << _name << " executed the " << form.get_name() << " form successfully!" << std::endl;
 		if (ret == 2)

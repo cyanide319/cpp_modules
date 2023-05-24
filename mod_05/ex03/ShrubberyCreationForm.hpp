@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:26:17 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:23:55 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:50:38 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ShrubberyCreationForm: public Form{
 		ShrubberyCreationForm(const ShrubberyCreationForm& new_object);	
 		~ShrubberyCreationForm();
 
-		void	execute();
+		int		execute(const Bureaucrat& bureaucrat) const;
 
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& other);
 };
