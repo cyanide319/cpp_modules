@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 20:06:35 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/24 14:03:56 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@
  		Bureaucrat boris = Bureaucrat("Boris", 150);
 
 		Intern	intern;
+		Form* test = intern.makeForm("test", "whatever");
+		(void)test;
 	
+		std::cout<<"\n\n\n";
 		Form* shrub = intern.makeForm("Shrubbery", "whatever");
+		std::cout<<"\n\n\n";
 		Form* prez = intern.makeForm("Presidential", "whatever");
+		std::cout<<"\n\n\n";
 		Form* rob = intern.makeForm("Robotomy", "whatever");
+		std::cout<<"\n\n\n";
 
 		boris.signForm(*shrub);
 		bob.signForm(*shrub);
@@ -45,6 +51,9 @@
 		bob.executeForm(*prez);
 		std::cout<<"\n\n\n";
 		bob.executeForm(*rob);
+		delete shrub;
+		delete prez;
+		delete rob;
  	}
  	catch(const std::exception& e)
  	{

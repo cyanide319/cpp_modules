@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:22:06 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:05:00 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form{
 		Form();	
 		Form(std::string name, int to_sign, int to_exec);	
 		Form(const Form& new_object);	
-		~Form();
+		virtual ~Form();
 
 		std::string 	get_name(void) const;
 		std::string 	get_target(void) const;
