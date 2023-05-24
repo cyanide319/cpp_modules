@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:21 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 16:33:30 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:04:47 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	Bureaucrat::signForm(Form& form){
 			std::cout << "The " << form.get_name() << " form was already signed!" << std::endl;
 	}
 	catch(const std::exception& e){
-		std::cerr << _name << " couldn't sign the " << form.get_name()<< " form because: " << e.what() << '\n';
+		std::cerr << _name << " couldn't sign the " << form.get_name()<< " form because: " << e.what();
 	}
 	
 }
@@ -103,7 +103,7 @@ void	Bureaucrat::executeForm(Form& form){
 			std::cout << "The " << form.get_name() << " form need to be signed!" << std::endl;
 	}
 	catch(const std::exception& e){
-		std::cerr << _name << " couldn't execute the " << form.get_name()<< " form because: " << e.what() << '\n';
+		std::cerr << _name << " couldn't execute the " << form.get_name()<< " form because: " << e.what();
 	}
 	
 }

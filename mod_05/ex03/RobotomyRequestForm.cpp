@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:33 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 19:01:49 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:09:09 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ void	RobotomyRequestForm::execute(){
     std::srand(std::time(NULL));
 
 	int randomNumber;
-    for (int i = 0; i < 5; ++i) {
-        randomNumber = std::rand() % 10 + 1;
-    }
+    randomNumber = std::rand() % 100 + 1;
 	if (randomNumber > 50)
 		std::cout << "The procedure is a success! The vict...Uh...The target: "
 			<< get_target() <<" as been robotomized!" << std::endl;

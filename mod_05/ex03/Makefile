@@ -6,7 +6,7 @@
 #    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/23 19:02:18 by tristan          ###   ########.fr        #
+#    Updated: 2023/05/23 20:00:26 by tristan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-.cpp.o: $(SRCS) $(OBJS)
+.cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
