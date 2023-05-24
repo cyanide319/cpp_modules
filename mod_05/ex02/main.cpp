@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 14:25:49 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:19:34 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(void){
 	{
 		const char* userVar = std::getenv("USER");
 		std::string	var;
-		if (userVar != nullptr)
+		if (userVar != NULL)
 			var = userVar;
 		else
 			var = "Whatever";

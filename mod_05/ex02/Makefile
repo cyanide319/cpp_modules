@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/23 13:11:52 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/05/23 20:14:21 by tristan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-.cpp.o: $(SRCS) $(OBJS)
+.cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

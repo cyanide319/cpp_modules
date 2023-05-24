@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:33 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 18:52:39 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:09:09 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ void	RobotomyRequestForm::execute(){
 	std::cout << "*More ominous drilling noises*" << std::endl;
 	std::cout << "*Some ominous drilling noises later*" << std::endl;
 
-    std::srand(std::time(nullptr));
+    std::srand(std::time(NULL));
 
 	int randomNumber;
-    for (int i = 0; i < 5; ++i) {
-        randomNumber = std::rand() % 10 + 1;
-    }
+    randomNumber = std::rand() % 100 + 1;
 	if (randomNumber > 50)
 		std::cout << "The procedure is a success! The vict...Uh...The target: "
 			<< get_target() <<" as been robotomized!" << std::endl;

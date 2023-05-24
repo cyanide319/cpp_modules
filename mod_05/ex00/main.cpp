@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:11:17 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 13:13:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:23:24 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	main(void){
 				print_tab(*boris);
 				print_tab(*karen);
 				print_tab(*robert);
-				std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"Bob"<<YELLOW_CL <<">" 
-				<<YELLOW_CL<<"<"<< PINK_CL <<"Boris"<<YELLOW_CL <<">"
-				<<YELLOW_CL<<"<"<< PINK_CL <<"Karen"<<YELLOW_CL <<">"
-				<<YELLOW_CL<<"<"<< PINK_CL <<"Robert"<<YELLOW_CL <<"> which one you want to change?"
+				std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"bob"<<YELLOW_CL <<">" 
+				<<YELLOW_CL<<"<"<< PINK_CL <<"boris"<<YELLOW_CL <<">"
+				<<YELLOW_CL<<"<"<< PINK_CL <<"karen"<<YELLOW_CL <<">"
+				<<YELLOW_CL<<"<"<< PINK_CL <<"robert"<<YELLOW_CL <<"> which one you want to change?"
 				<<std::endl<<"<"<<PINK_CL <<"exit"<<YELLOW_CL<<">"<<std::endl<<GREEN_CL;
 				getline(std::cin, input);
 				
-				if (input == "Bob"){
+				if (input == "bob"){
 					std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"up"<<YELLOW_CL <<"> grade up"<<std::endl<<
 					"<"<<PINK_CL <<"down"<<YELLOW_CL<<"> grade down"<<std::endl<<GREEN_CL;
 					getline(std::cin, input);
@@ -49,7 +49,7 @@ int	main(void){
 					if (input == "down")
 						bob->grade_down();
 				}
-				if (input == "Boris"){
+				if (input == "boris"){
 					std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"up"<<YELLOW_CL <<"> grade up"<<std::endl<<
 					"<"<<PINK_CL <<"down"<<YELLOW_CL<<"> grade down"<<std::endl<<GREEN_CL;
 					getline(std::cin, input);
@@ -59,7 +59,7 @@ int	main(void){
 					if (input == "down")
 						boris->grade_down();
 				}
-				if (input == "Karen"){
+				if (input == "karen"){
 					std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"up"<<YELLOW_CL <<"> grade up"<<std::endl<<
 					"<"<<PINK_CL <<"down"<<YELLOW_CL<<"> grade down"<<std::endl<<GREEN_CL;
 					getline(std::cin, input);
@@ -69,7 +69,7 @@ int	main(void){
 					if (input == "down")
 						karen->grade_down();
 				}
-				if (input == "Robert"){
+				if (input == "robert"){
 					std::cout<<YELLOW_CL<<"<"<< PINK_CL <<"up"<<YELLOW_CL <<"> grade up"<<std::endl<<
 					"<"<<PINK_CL <<"down"<<YELLOW_CL<<"> grade down"<<std::endl<<GREEN_CL;
 					getline(std::cin, input);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:41 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:34:33 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:00:34 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Form(new_object.get_name(), 145, 137){
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 void	ShrubberyCreationForm::execute(){
-	std::string outfile = get_target() + "_shrubbery";
-	std::ofstream	Outfile(outfile);
+	std::string outfile = (get_target() + "_shrubbery");
+	std::ofstream	Outfile(outfile.c_str());
 	Outfile << "      /\\          /\\          /\\          /\\  " << std::endl
 			<< "     /||\\        /||\\        /||\\        /||\\  " << std::endl
 			<< "    /||||\\      /||||\\      /||||\\      /||||\\ " << std::endl
