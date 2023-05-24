@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:12:29 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/23 20:03:11 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/24 17:46:31 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,6 @@ int			Form::beSigned(const Bureaucrat& bureaucrat){
 	throw Form::GradeTooLowException();
 	return (1);
 }
-
-int			Form::beExecuted(const Bureaucrat& bureaucrat){
-	if (bureaucrat.get_grade() <= this->get_to_sign()){
-		if (get_signed() == true){
-			execute();
-			return (0);
-		}
-		else{
-			return(2);
-		}
-	}
-	throw Form::GradeTooLowException();
-	return (1);
-}
-
 
 //EXCEPTIONS TRHOWS
 const char*	Form::GradeTooHighException::what() const throw(){

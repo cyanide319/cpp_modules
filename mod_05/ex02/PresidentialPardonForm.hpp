@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:53 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:25:41 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:45:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PresidentialPardonForm: public Form{
 		PresidentialPardonForm(const PresidentialPardonForm& new_object);	
 		~PresidentialPardonForm();
 		
-		void	execute();
+		int	execute(const Bureaucrat& bureaucrat) const;
 
 		PresidentialPardonForm& 		operator=(const PresidentialPardonForm& other);
 };

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:27:57 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:34:27 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:45:33 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,19 @@ Form(new_object.get_name(), 25, 5){
 //DEFAULT DESTRUCT
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
-void	PresidentialPardonForm::execute(){
-	std::cout << "By the surpreme autority of the God Emperor Zaphod Beeblebrox, you, "
-		<< get_target() <<  ", have been pardonned. Now proceed with the execution." << std::endl;
+int	PresidentialPardonForm::execute(const Bureaucrat& bureaucrat) const{
+	if (bureaucrat.get_grade() <= this->get_to_sign()){
+		if (get_signed() == true){
+		std::cout << "By the surpreme autority of the God Emperor Zaphod Beeblebrox, you, "
+			<< get_target() <<  ", have been pardonned. Now proceed with the execution." << std::endl;
+			return (0);
+		}
+		else{
+			return(2);
+		}
+	}
+	throw Form::GradeTooLowException();
+	return (1);
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& other){
