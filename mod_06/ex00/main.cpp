@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:47:16 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/25 16:50:24 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/26 12:20:08 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ int main(int argc, char **argv){
 		std::cout << "Need to pass a char, an int, a float or a double as an argument." << std::endl;
 		return (1);
 	}
-	std::string	base = argv[1];
-	Converter convert(base);
-	convert.convert();
-	std::cout << convert;
+	try
+	{
+		std::string	base = argv[1];
+		Converter convert(base);
+		convert.convert();
+		std::cout << convert;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }

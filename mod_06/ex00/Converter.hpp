@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/25 16:53:31 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/26 12:26:12 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include<cstdlib>
 #include<string>
 #include<iostream>
+#include<stdexcept>
 
 class Converter{
 	public:

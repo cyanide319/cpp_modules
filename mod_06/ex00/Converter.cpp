@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:45:59 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/25 16:52:47 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/26 12:34:22 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	Converter::parse_string(){
 	int flag = 0;
 
 	while(_base[i]){
-		if (_base[i] >= 'a' && _base[i] >= 'z')
+		if ((_base[i] >= 'a' && _base[i] >= 'z') || (_base[i] >= 'A' && _base[i] >= 'B'))
 			flag++;
 		i++;
 	}
@@ -48,9 +48,11 @@ void	Converter::convert(){
 	try{
 		const char* basestr = _base.c_str();
 		_charConvert = basestr[0];
-		_intConvert = std::atoi(basestr);
-		_floatConvert = std::atof(basestr);
-		_doubleConvert = std::strtod(basestr, NULL);		
+		_intConvert = (int)std::stoi(basestr);
+		_floatConvert = (float)std::atof(basestr);
+
+		char* end;
+		_doubleConvert = (double)std::strtod(basestr, &end);		
 	}
 	catch(const std::exception& e){
 		std::cerr << e.what() << '\n';
@@ -69,9 +71,9 @@ Converter& Converter::operator=(const Converter& other){
 }
 
 std::ostream& operator<<(std::ostream& output, const Converter& convert){
-	output << "Char :" << convert.get_charConvert() << std::endl
-	<< "Int :" << convert.get_intConvert() << std::endl
-	<< "Float :" << convert.get_floatConvert() << std::endl
-	<< "Double :" << convert.get_doubleConvert() << std::endl;
+	output << "Char: " << convert.get_charConvert() << std::endl
+	<< "Int: " << convert.get_intConvert() << std::endl
+	<< "Float: " << convert.get_floatConvert() << std::endl
+	<< "Double: " << convert.get_doubleConvert() << std::endl;
 	return (output);
 }
