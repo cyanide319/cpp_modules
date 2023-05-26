@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/18 12:40:58 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/05/25 16:50:47 by tristan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = scalar
 
 SRCS = main.cpp \
-		Bureaucrat.cpp \
+		Converter.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
