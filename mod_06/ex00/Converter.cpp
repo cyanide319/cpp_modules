@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:45:59 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 14:08:34 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:50:33 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ const char* Converter::Overflow::what() const throw() {return ("Overflow");}
 const char* Converter::Invalid::what() const throw() {return ("Invalid conversion");}
 
 std::string Converter::get_base(void) const {return(this->_base);}
+std::string Converter::get_type(void) const {return(this->_type);}
 char		Converter::get_charConvert(void) const {return(this->_charConvert);}
 int			Converter::get_intConvert(void) const {return(this->_intConvert);}
 double		Converter::get_doubleConvert(void) const {return(this->_doubleConvert);}
@@ -188,10 +189,10 @@ std::ostream& operator<<(std::ostream& output, const Converter& convert){
 			output << "Char: " << "Impossible" << std::endl;
 	}
 	
-	if (convert.get_impossible_flag() == 0)
-		output << "Int: " << convert.get_intConvert() << std::endl;
-	else if (convert.get_impossible_flag() == 1)
+	if (convert.get_impossible_flag() == 1 || (convert.get_intConvert() <= INT_MIN && convert.get_type() != "int"))
 		output << "Int: " << "Impossible" << std::endl;
+	else if (convert.get_impossible_flag() == 0)
+		output << "Int: " << convert.get_intConvert() << std::endl;
 
 	if (convert.get_precision() == 0){
 		output << "Float: " << std::fixed << std::setprecision(1) << convert.get_floatConvert()<< "f" << std::endl

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 14:01:51 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:51:19 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Converter{
 		void	from_float();
 
 		std::string	get_base(void) const;
+		std::string get_type(void) const;
 		char		get_charConvert(void) const;
 		int			get_intConvert(void) const;
 		double		get_doubleConvert(void) const;
