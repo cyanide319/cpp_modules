@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:47:16 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/26 12:20:08 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/31 12:17:16 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ int main(int argc, char **argv){
 		std::cout << "Need to pass a char, an int, a float or a double as an argument." << std::endl;
 		return (1);
 	}
-	try
-	{
+	try{
 		std::string	base = argv[1];
 		Converter convert(base);
-		convert.convert();
-		std::cout << convert;
+		try{
+			std::cout << convert;
+		}
+		catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+			return (1);
+		}
 	}
-	catch(const std::exception& e)
-	{
+	catch(const std::exception& e){
 		std::cerr << e.what() << '\n';
+		return (1);
 	}
-	
 }

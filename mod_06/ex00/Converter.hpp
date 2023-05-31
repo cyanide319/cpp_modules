@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/26 12:26:12 by tristan          ###   ########.fr       */
+/*   Updated: 2023/05/31 12:16:08 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 #include<cstdlib>
 #include<string>
+#include<iomanip>
 #include<iostream>
 #include<stdexcept>
+#include<limits>
 
 class Converter{
 	public:
@@ -27,21 +29,35 @@ class Converter{
 
 		void	convert();
 		int		parse_string();
+		int		is_all_digits_and_dot(std::string& str);
+		void	find_precision(std::string& str);
+
+		void	from_char();
+		void	from_int();
+		void	from_double();
+		void	from_float();
 
 		std::string	get_base(void) const;
 		char		get_charConvert(void) const;
 		int			get_intConvert(void) const;
 		double		get_doubleConvert(void) const;
 		float		get_floatConvert(void) const;
+		int			get_print_flag(void) const;
+		int			get_precision(void) const;
 
-		class TooManyCharException: public std::exception{
+		void		set_precision(int new_value);
+
+		class WrongInput: public std::exception{
 			public:
 				const char* what() const throw();
 		};
 
 		Converter& operator=(const Converter& other);
 	private:
-		const std::string	_base;
+		std::string			_base;
+		std::string			_type;
+		int					_precision;
+		int					_print_flag;
 		int					_intConvert;
 		double				_doubleConvert;
 		float				_floatConvert;
