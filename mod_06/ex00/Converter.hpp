@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 12:16:08 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:01:51 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONVERTER_HPP
 
 #include<cstdlib>
+#include<cmath>
 #include<string>
 #include<iomanip>
 #include<iostream>
@@ -43,6 +44,7 @@ class Converter{
 		double		get_doubleConvert(void) const;
 		float		get_floatConvert(void) const;
 		int			get_print_flag(void) const;
+		int			get_impossible_flag(void) const;
 		int			get_precision(void) const;
 
 		void		set_precision(int new_value);
@@ -51,11 +53,20 @@ class Converter{
 			public:
 				const char* what() const throw();
 		};
+		class Overflow: public std::exception{
+			public:
+				const char* what() const throw();
+		};
+		class Invalid: public std::exception{
+			public:
+				const char* what() const throw();
+		};
 
 		Converter& operator=(const Converter& other);
 	private:
 		std::string			_base;
 		std::string			_type;
+		int					_impossible_flag;
 		int					_precision;
 		int					_print_flag;
 		int					_intConvert;
