@@ -6,20 +6,20 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 14:51:19 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:39:48 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERTER_HPP
 #define CONVERTER_HPP
 
-#include<cstdlib>
-#include<cmath>
+// #include<cstdlib>
+// #include<cmath>
 #include<string>
 #include<iomanip>
 #include<iostream>
-#include<stdexcept>
-#include<limits>
+// #include<stdexcept>
+// #include<limits>
 
 class Converter{
 	public:

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:45:59 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 14:50:33 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:59:35 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,9 +198,13 @@ std::ostream& operator<<(std::ostream& output, const Converter& convert){
 		output << "Float: " << std::fixed << std::setprecision(1) << convert.get_floatConvert()<< "f" << std::endl
 		<< "Double: " << std::fixed << std::setprecision(1) << convert.get_doubleConvert() << std::endl;
 	}
-	else{
+	else if(convert.get_precision() < 6){
 		output<< "Float: " << std::fixed << std::setprecision(convert.get_precision()) << convert.get_floatConvert()<< "f" << std::endl
 		<< "Double: " << std::fixed << std::setprecision(convert.get_precision()) << convert.get_doubleConvert() << std::endl;
+	}
+	else{
+		output<< "Float: " << std::scientific << convert.get_floatConvert()<< "f" << std::endl
+		<< "Double: " << std::scientific << convert.get_doubleConvert() << std::endl;
 	}
 	return (output);
 }
