@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:12 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 16:18:54 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:17:35 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include<iomanip>
 #include<iostream>
+//for linux
+#include<cmath>
+#include<limits.h>
+#include<errno.h>
+#include<cstdlib>
+#include<string.h>
 
 class Converter{
 	public:

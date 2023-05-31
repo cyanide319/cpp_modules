@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:45:59 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 14:59:35 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:14:39 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,11 @@ void	Converter::convert(){
 			throw Overflow();
 		from_float();
 	}
-	else if (_base.back() == 'f'){
-		_base.pop_back();
+	else if (_base[_base.size() - 1] == 'f'){
+		if (!_base.empty()) {
+   			 _base.erase(_base.size() - 1);
+		}
+		//_base.pop_back();
 		if (is_all_digits_and_dot(_base) == 0){
 			_type = "float";
 			char* end;
