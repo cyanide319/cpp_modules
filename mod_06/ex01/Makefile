@@ -6,14 +6,13 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/18 12:40:58 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/06/01 13:04:15 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = serial
 
 SRCS = main.cpp \
-		Bureaucrat.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
@@ -38,3 +37,6 @@ re: fclean all
 
 exec: re
 		./$(NAME)
+
+leak: re
+		leaks --atExit -- ./$(NAME)

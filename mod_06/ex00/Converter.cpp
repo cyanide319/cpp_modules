@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:45:59 by tristan           #+#    #+#             */
-/*   Updated: 2023/05/31 17:14:39 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/01 11:48:17 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,12 +139,11 @@ void	Converter::convert(){
 			throw Overflow();
 		from_float();
 	}
-	else if (_base[_base.size() - 1] == 'f'){
+	else if (_base[_base.size() - 1] == 'f' || _base[_base.size() - 1] == 'F'){
 		if (!_base.empty()) {
    			 _base.erase(_base.size() - 1);
 		}
-		//_base.pop_back();
-		if (is_all_digits_and_dot(_base) == 0){
+		if (is_all_digits_and_dot(_base) == 0 || is_all_digits_and_dot(_base) == 2){
 			_type = "float";
 			char* end;
 			_floatConvert = std::strtof(_base.c_str(), &end);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
+#    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/05/26 12:21:14 by tristan          ###   ########.fr        #
+#    Updated: 2023/06/01 13:04:35 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,3 +38,6 @@ re: fclean all
 
 exec: re
 		./$(NAME)
+
+leak: re
+		leaks --atExit -- ./$(NAME)
