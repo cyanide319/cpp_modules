@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:55:06 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/01 17:04:30 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/02 15:25:55 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_HPP
-#define B_HPP
+#ifndef C_HPP
+#define C_HPP
 
 #pragma once
 
-class B: public Base{};
+#include"Base.hpp"
+
+class C: public Base{
+	//public:
+	//	C(){}
+};
 
 #endif

@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tristan <tristan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/06/01 13:04:15 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/06/02 16:30:54 by tristan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serial
+NAME = base
 
 SRCS = main.cpp \
+		Base.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:55:12 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/01 17:04:22 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/02 15:25:40 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #pragma once
 
-class A: public Base{};
+#include"Base.hpp"
+
+class A: public Base{
+	//public:
+	//	A(){}
+};
 
 #endif
