@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:19:09 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/01 13:03:21 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:09:37 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int main(){
 	std::cout << serial << std::endl;
 	std::cout << BOLD ITAL ULINE BG_BRIGHT_BLACK "Serial 2:" RESET  "\n";
 	std::cout << serial << std::endl;
+	std::cout << &test1 << std::endl;
+	std::cout << &test2 << std::endl;
+	std::cout << &test3 << std::endl;
 
 	delete test1;
 }
