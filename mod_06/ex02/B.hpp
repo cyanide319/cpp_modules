@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:55:10 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/02 15:25:47 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:24:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include"Base.hpp"
 
 class B: public Base{
-	//public:
-	//	B(){}
 };
 
 #endif

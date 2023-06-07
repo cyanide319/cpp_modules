@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 17:08:05 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/02 15:31:28 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:25:14 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,17 @@ void identify(Base& p){
 		(void)ref;
 		std::cout << "Type of reference is: A" << std::endl;
 	}
-	catch(const std::exception& e){
-	}
+	catch(const std::exception& e){}
 	try{
 		B& ref = dynamic_cast<B&>(p);
 		(void)ref;
 		std::cout << "Type of reference is: B" << std::endl;
 	}
-	catch(const std::exception& e){
-	}
+	catch(const std::exception& e){}
 	try{
 		C& ref = dynamic_cast<C&>(p);
 		(void)ref;
 		std::cout << "Type of reference is: C" << std::endl;
 	}
-	catch(const std::exception& e){
-
-	}
+	catch(const std::exception& e){}
 }
