@@ -6,11 +6,11 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:01:27 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/08 09:07:17 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:21:46 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Whatever.hpp"
+#include "whatever.hpp"
 
 int main( void ) {
 int a = 2;

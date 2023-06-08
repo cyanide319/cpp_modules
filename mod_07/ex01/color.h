@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:48:24 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/01 12:50:21 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/08 12:40:57 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PURPLE	"\e[35m"
 # define CYAN	"\e[36m"
 # define WHITE	"\e[37m"
+# define PINK   "\033[38;2;255;192;203m"
 
 # define BRIGHT_BLACK	"\e[90m"
 # define BRIGHT_RED		"\e[91m"
