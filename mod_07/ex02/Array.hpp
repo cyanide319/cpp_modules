@@ -6,7 +6,7 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:28:48 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/13 16:56:05 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/13 17:05:34 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 template <typename T>
 class Array{
 	public:
-		T	array[];
 
 		Array();
 		Array(unsigned int lenght);
@@ -28,7 +27,10 @@ class Array{
 		Array& operator=(const Array& other);
 		Array& operator[](const Array& other);
 	private:
+		T*				_array;
 		unsigned int	_size;
 };
+
+#include "Array.tpp"
 
 #endif

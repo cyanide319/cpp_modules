@@ -6,15 +6,17 @@
 /*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:37:12 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/13 16:54:36 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/13 17:09:28 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-Array::Array(): _size(0){_array = new T[];}
+template <typename T>
+Array<T>::Array(): _size(0){_array = new T[0];}
 
-Array::Array(unsigned int lenght): _size(lenght){_array = new T[lenght];}
+template <typename T>
+Array<T>::Array(unsigned int lenght): _size(lenght){_array = new T[lenght];}
 
 //Array::Array(const Array& new_object){} 
 
