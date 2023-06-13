@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:28:48 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/13 12:17:18 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:56:05 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 template <typename T>
 class Array{
 	public:
+		T	array[];
+
 		Array();
 		Array(unsigned int lenght);
 		Array(const Array& new_object);
@@ -26,7 +28,7 @@ class Array{
 		Array& operator=(const Array& other);
 		Array& operator[](const Array& other);
 	private:
-		T _array[];
+		unsigned int	_size;
 };
 
 #endif

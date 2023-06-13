@@ -1,13 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.cpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:37:12 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/13 13:14:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:54:36 by tristan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+
+Array::Array(): _size(0){_array = new T[];}
+
+Array::Array(unsigned int lenght): _size(lenght){_array = new T[lenght];}
+
+//Array::Array(const Array& new_object){} 
+
+//Array::~Array(){}
+
+//unsigned int	Array::size(){}
+
+//Array& Array::operator=(const Array& other){}
+
+//Array& Array::operator[](const Array& other){}
