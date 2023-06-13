@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 09:11:25 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/11 09:30:46 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/06/11 09:28:48 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/06/13 12:17:18 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-#include <iostream>
+template <typename T>
+class Array{
+	public:
+		Array();
+		Array(unsigned int lenght);
+		Array(const Array& new_object);
+		~Array();
 
-template <typename T, typename Function>
-void	iter(T* array, const int lenght, Function func){
-	int i = -1;
-	while (++i < lenght)
-		func(array[i]);
+		unsigned int	size();
+
+		Array& operator=(const Array& other);
+		Array& operator[](const Array& other);
+	private:
+		T _array[];
 };
 
 #endif
