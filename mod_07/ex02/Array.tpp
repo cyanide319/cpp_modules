@@ -3,27 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tristan <tristan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:37:12 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/13 17:09:28 by tristan          ###   ########.fr       */
+/*   Updated: 2023/06/13 17:48:38 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-template <typename T>
+template<typename T>
 Array<T>::Array(): _size(0){_array = new T[0];}
 
-template <typename T>
+template<typename T>
 Array<T>::Array(unsigned int lenght): _size(lenght){_array = new T[lenght];}
 
-//Array::Array(const Array& new_object){} 
+template<typename T>
+Array<T>::Array(const Array& new_object){
+	this->_array = new T[_size];
+	int i = 0;
+	while(i < _size){
+		this->_array[i] = new_object->_array[i];
+		i++;
+	}
+}
 
-//Array::~Array(){}
+template<typename T>
+Array<T>::~Array(){delete[] _array;}
 
-//unsigned int	Array::size(){}
+template<typename T>
+Array<T>& Array<T>::operator=(const Array<T>& other){
+	if(this != &other){
+		delete[] _array;
+        this->_size = other._size;
+		this->_array = new T[this->_size];
+		int i = 0;
+		while(i < _size){
+			this->_array[i] = other->_array[i];
+			i++;
+		}
+    }
+    return(*this);
+}
 
-//Array& Array::operator=(const Array& other){}
+// template<typename T>
+// unsigned int	Array<T>::size(){}
 
-//Array& Array::operator[](const Array& other){}
+// template<typename T>
+// Array& Array<T>::operator[](const Array& other){}
