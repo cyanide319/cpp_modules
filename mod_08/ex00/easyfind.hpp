@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 08:42:52 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/06/14 17:21:19 by tbeaudoi         ###   ########.fr       */
+/*   Created: 2023/06/30 02:11:31 by tbeaudoi          #+#    #+#             */
+/*   Updated: 2023/07/03 12:27:17 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
-
-#include <iostream>
+#include <algorithm>
 
 template <typename T>
-void swap(T& var1, T& var2){
-	T temp;
-	temp = var1;
-	var1 = var2;
-	var2 = temp;
+bool easyfind(T& container, int to_find){
+	typename T::const_iterator iterator = std::find(container.begin(), container.end(), to_find);
+	if (iterator != container.end())
+			return (true);
+	return (false);
 };
-template <typename T>
-T&	min(T& var1, T& var2){
-	if (var1 < var2)
-		return (var1);
-	else
-		return (var2);
-};
-template <typename T>
-T&	max(T& var1, T& var2){
-	if (var1 > var2)
-		return (var1);
-	else
-		return (var2);
-};
-
-#endif
