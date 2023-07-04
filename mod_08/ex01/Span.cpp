@@ -6,11 +6,12 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:57:16 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/03 14:15:59 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/04 14:15:57 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Span.hpp"
+#include <iostream>
 
 Span::Span(unsigned int range): _index(0), N(range){}
 
@@ -27,48 +28,41 @@ void	Span::addNumber(int nb){
 	_index++;
 }
 
-struct EqualToValue {
-    int value;
-    EqualToValue(int val) : value(val) {}
-    bool operator()(int element) const {
-        return element == value;
-    }
-};
-
-unsigned int	Span::shortestSpan(){
-	if (_index <= 1)
-		throw NoSpan();
-	std::vector<int>::iterator min = std::min_element(_vector.begin(), _vector.end());
-	if (min == _vector.end())
-		throw NoSpan();
-
-	std::vector<int>::iterator second_low = min + 1;
-	std::vector<int>::iterator iter;
-
-	for (unsigned int i = 0; i < _index; i++){
-		iter = std::find_if(_vector.begin(), _vector.end(),  EqualToValue(*second_low));
-		if (iter == _vector.end())
-			second_low++;
-		else
-			break ;
-	}
-
-	if (iter == _vector.end())
-		throw NoSpan();
-	// std::ptrdiff_t ret = iter - min;
+void Span::addRange(std::vector<int> range){
+	if (_index + range.size() > N)
+		throw LimitReached();
 	else
-		return (static_cast<unsigned int>(std::distance(min, iter)));
+		_vector.insert(_vector.end(), range.begin(), range.end());
+	_index += range.size();
 }
 
-unsigned int	Span::longestSpan(){
+int	Span::shortestSpan(){
 	if (_index <= 1)
 		throw NoSpan();
-	std::vector<int>::iterator min = std::min_element(_vector.begin(), _vector.end());
+	std::vector<int>::iterator iter;
+	std::vector<int>::iterator iter2;
+	std::vector<int> temp(_vector.begin(), _vector.end());
+	int span = std::numeric_limits<int>::max();
+	for (iter = temp.begin(); iter != temp.end(); ++iter){
+		for (iter2 = iter + 1; iter2 != temp.end(); ++iter2){
+			int dif = std::abs(*iter2 - *iter);
+			if (dif < span)
+				span = dif;
+		}
+	}
+	return (span);
+}
+
+int	Span::longestSpan(){
+	if (_index <= 1)
+		throw NoSpan();
+	std::vector<int> temp(_vector.begin(), _vector.end());
+	std::vector<int>::iterator min = std::min_element(temp.begin(), temp.end());
 	if (min == _vector.end())
 		throw NoSpan();
-	std::vector<int>::iterator max = std::max_element(_vector.begin(), _vector.end());
+	std::vector<int>::iterator max = std::max_element(temp.begin(), temp.end());
 	if (max == _vector.end())
 		throw NoSpan();
 	else
-		return (static_cast<unsigned int>(std::distance(min, max)));
+		return (*max - *min);
 }
