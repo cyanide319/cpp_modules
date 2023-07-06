@@ -6,12 +6,12 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:57:19 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/05 12:34:11 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/06 12:02:22 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN.HPP
-#define SPAN.HPP
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <algorithm>
 #include <vector>
