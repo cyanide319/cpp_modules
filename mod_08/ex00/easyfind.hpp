@@ -6,9 +6,12 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 02:11:31 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/03 12:27:17 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:34:47 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 #include <algorithm>
 
@@ -19,3 +22,5 @@ bool easyfind(T& container, int to_find){
 			return (true);
 	return (false);
 };
+
+#endif

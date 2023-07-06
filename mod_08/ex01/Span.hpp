@@ -6,9 +6,12 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:57:19 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/04 14:05:14 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:34:11 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SPAN.HPP
+#define SPAN.HPP
 
 #include <algorithm>
 #include <vector>
@@ -38,3 +41,5 @@ class Span{
 		unsigned int		N;
 		std::vector<int>	_vector;
 };
+
+#endif
