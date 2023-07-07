@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:13:07 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/06 15:46:22 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:53:53 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,31 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <map>
+#include <fstream>
+#include <sstream>
+#include <vector>
+
 
 class BitcoinExchange{
 	public:
+		BitcoinExchange(std::string path);
+		~BitcoinExchange();
+
+		void						parsing(std::string path);
+		std::vector<std::string>	split_vectors(std::string str, char delimiter);
+
+		class EmptyFd: public std::exception{
+			public:
+				const char* what() const throw();
+		};
+		class BadFormat: public std::exception{
+			public:
+				const char* what() const throw();
+		};
 
 	private:
 		std::map<int[3], float>	_data;
+		size_t					_line;
 };
 
 #endif
