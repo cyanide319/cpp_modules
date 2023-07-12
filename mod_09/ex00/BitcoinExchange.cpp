@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:49:23 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 13:17:41 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:30:01 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,6 @@ bool BitcoinExchange::is_string_digit(const std::string& str){
     return true;
 }
 
-std::string*	BitcoinExchange::split_str(std::string str, char delimiter){
-	std::string*				ret = new std::string[3];
-	std::stringstream 			ss(str);
-	std::string 				token;
-	int							i = 0;
-
-	while(std::getline(ss, token, delimiter)){
-		ret[i] += token;
-		i++;
-		if (i > 2)
-			break ;
-	}
-	return (ret);
-}
-
- 		#include <unistd.h>
- 		#include <iomanip>
 int BitcoinExchange::parse_price(std::string str){
 	size_t 		start = str.find_first_of("|");
 	std::stringstream	line;
@@ -110,8 +93,8 @@ int BitcoinExchange::parse_price_input(std::string str){
 }
 
 int	BitcoinExchange::parse_date(std::string str){
-	size_t 			end = str.find_first_of(" |");
-	std::string*	temp;
+	size_t 				end = str.find_first_of(" |");
+	std::string			temp[3];
 	std::stringstream	line;
 	line << _line;
 
@@ -120,7 +103,16 @@ int	BitcoinExchange::parse_date(std::string str){
 		_month = 0;
 		_day = 0;
 		std::string		substr = str.substr(0, end);
-		temp = split_str(substr, '-');
+		std::stringstream 			ss(substr);
+		std::string 				token;
+		int							i = 0;
+
+		while(std::getline(ss, token, '-')){
+			temp[i] += token;
+			i++;
+			if (i > 2)
+				break ;
+		}
 		if (is_string_digit(temp[0]) == false || is_string_digit(temp[1]) == false
 			|| is_string_digit(temp[2]) == false){
 			std::string error = "Error: Missing a value on line: " + line.str();
@@ -160,8 +152,8 @@ int	BitcoinExchange::parse_date(std::string str){
 }
 
 int	BitcoinExchange::parse_date_input(std::string str){
-	size_t 			end = str.find_first_of(" |");
-	std::string*	temp;
+	size_t 				end = str.find_first_of(" |");
+	std::string			temp[3];
 	std::stringstream	line;
 	line << _line;
 
@@ -170,7 +162,16 @@ int	BitcoinExchange::parse_date_input(std::string str){
 		_month = 0;
 		_day = 0;
 		std::string		substr = str.substr(0, end);
-		temp = split_str(substr, '-');
+		std::stringstream 			ss(substr);
+		std::string 				token;
+		int							i = 0;
+
+		while(std::getline(ss, token, '-')){
+			temp[i] += token;
+			i++;
+			if (i > 2)
+				break ;
+		}
 		if (is_string_digit(temp[0]) == false || is_string_digit(temp[1]) == false
 			|| is_string_digit(temp[2]) == false){
 			std::string error = "Error: Missing a value on line: " + line.str();

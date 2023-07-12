@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:13:07 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 12:59:48 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:29:13 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class BitcoinExchange{
 		int				parse_price(std::string str);
 		int				parse_price_input(std::string str);
 		bool 			is_string_digit(const std::string& str);
-		std::string*	split_str(std::string str, char delimiter);
 		
 
 		class EmptyFd: public std::exception{
