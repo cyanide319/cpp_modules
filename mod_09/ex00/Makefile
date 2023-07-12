@@ -6,11 +6,11 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/07/10 14:34:48 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/07/11 11:52:52 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar
+NAME = btc
 
 SRCS = main.cpp \
 		BitcoinExchange.cpp \

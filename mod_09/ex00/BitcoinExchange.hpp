@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:13:07 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/10 14:41:57 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:59:48 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <map>
+#include <stdexcept>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -25,9 +26,16 @@ class BitcoinExchange{
 		BitcoinExchange(std::string path);
 		~BitcoinExchange();
 
-		int							parsing(std::string path);
-		int							parse_date(std::string str);
-		std::vector<std::string>	split_vectors(std::string str, char delimiter);
+		int				parsing_database(std::string path);
+		int				parsing_input(std::string path);
+		int				check_database();
+		int				parse_date(std::string str);
+		int				parse_date_input(std::string str);
+		int				parse_price(std::string str);
+		int				parse_price_input(std::string str);
+		bool 			is_string_digit(const std::string& str);
+		std::string*	split_str(std::string str, char delimiter);
+		
 
 		class EmptyFd: public std::exception{
 			public:
@@ -37,13 +45,15 @@ class BitcoinExchange{
 			public:
 				const char* what() const throw();
 		};
-
+		
 	private:
-		std::map<int[3], float>	_data;
-		size_t					_line;
-		int						_year;
-		int						_month;
-		int						_day;
+		std::map<std::string, double>	_data;
+		std::string						_key;
+		int								_line;
+		int								_year;
+		int								_month;
+		int								_day;
+		double							_price;
 };
 
 #endif
