@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:13:07 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 13:29:13 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:14:41 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 class BitcoinExchange{
 	public:
 		BitcoinExchange(std::string path);
+		BitcoinExchange(const BitcoinExchange& new_object);
 		~BitcoinExchange();
 
 		int				parsing_database(std::string path);
@@ -44,6 +45,8 @@ class BitcoinExchange{
 			public:
 				const char* what() const throw();
 		};
+
+		BitcoinExchange& operator=(const BitcoinExchange& other);
 		
 	private:
 		std::map<std::string, double>	_data;

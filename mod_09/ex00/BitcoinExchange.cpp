@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:49:23 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 13:30:01 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:15:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ BitcoinExchange::BitcoinExchange(std::string path): _line(0){
 	parsing_database("./data.csv");
 	parsing_input(path);
 }
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& new_object){*this = new_object;}
 
 BitcoinExchange::~BitcoinExchange(){}
 
@@ -295,4 +297,17 @@ int	BitcoinExchange::parsing_input(std::string path){
 		}
 	}
 	return (0);
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other){
+	if(this != &other){
+		this->_data = other._data;
+		this->_key = other._key;
+		this->_line = other._line;
+		this->_year = other._year;
+		this->_month = other._month;
+		this->_day = other._day;
+		this->_price = other._price;
+	}
+	return(*this);
 }

@@ -6,13 +6,14 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/07/12 13:22:17 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/07/12 16:26:52 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = RPN
 
 SRCS = main.cpp \
+		RPN.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
