@@ -6,14 +6,14 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/07/13 13:48:25 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/07/13 14:45:36 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = PmergeMe
 
 SRCS = main.cpp \
-		RPN.cpp \
+		PmergeMe.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
@@ -40,7 +40,4 @@ exec: re
 		./$(NAME)
 
 leak: re
-		leaks --atExit -- ./$(NAME) "1 1 + 2 - 4 + 2 * 5 *"
-		leaks --atExit -- ./$(NAME) "1 1 + 2 - 4 + 2 * 5"
-		leaks --atExit -- ./$(NAME) "1 1 + 2 - 4343243243242 + 2 * 5 *"
-		leaks --atExit -- ./$(NAME) "1 a + 2 - 4 + 2 * 5 *"
+		leaks --atExit -- ./$(NAME)

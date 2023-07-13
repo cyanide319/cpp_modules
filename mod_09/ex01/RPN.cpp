@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:02:00 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 16:55:45 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:02:29 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,41 +55,51 @@ int	RPN::parse_input(std::string input){
 		array[i] += token;
 		i++;
 	}
-	if (i % 2 == 0)
+	if (i % 2 == 0){
+		delete[] array;
 		throw std::runtime_error("Error: wrong number of argument. The sum of digits and operand should always be odd");
-	if (is_string_digit(array[0]) == false)
-		throw std::runtime_error("Error: values must be numbers between 0 and 9 1");
+	}
+	if (is_string_digit(array[0]) == false){
+		delete[] array;
+		throw std::runtime_error("Error: values must be numbers between 0 and 9");
+	}
 
 	std::istringstream value1(array[0]);
 	int temp;
 	value1 >> temp;
-	if (temp < 1 || temp > 9)
-		throw std::runtime_error("Error: values must be numbers between 0 and 9 2");
+	if (temp < 1 || temp > 9){
+		delete[] array;
+		throw std::runtime_error("Error: values must be numbers between 0 and 9");
+	}
 	_stack.push(temp);
 
 
 	for(int j = 1; j < i; j++){
 		int result = 0;
-		std::cout << array[j] << std::endl;
 		std::istringstream value2(array[j]);
 		value2 >> temp;
-		if (temp < 1 || temp > 9)
-			throw std::runtime_error("Error: values must be numbers between 0 and 9 3");
+		if (temp < 1 || temp > 9){
+			delete[] array;
+			throw std::runtime_error("Error: values must be numbers between 0 and 9");
+		}
 		if (array[j + 1] == "+")
-			result = temp + _stack.top();
+			result = _stack.top() + temp;
 		else if (array[j + 1] == "-")
-			result = temp - _stack.top();
+			result = _stack.top() - temp;
 		else if (array[j + 1] == "/")
-			result = temp / _stack.top();
+			result = _stack.top() / temp;
 		else if (array[j + 1] == "*")
-			result = temp * _stack.top();
-		else
+			result =  _stack.top() * temp;
+		else{
+			delete[] array;
 			throw std::runtime_error("Error: expected a operations token");
+		}
 		_stack.pop();
 		_stack.push(result);
 		j += 1;		
 	}
 	std::cout << _stack.top() << std::endl;
+	delete[] array;
 	return (0);
 }
 
