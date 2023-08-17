@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:13:07 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 15:14:41 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/01 13:47:18 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 
 
 class BitcoinExchange{

@@ -6,19 +6,22 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/13 15:20:14 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:48:03 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(std::string input){
+PmergeMe::PmergeMe():_size(0){}
+
+PmergeMe::PmergeMe(std::string input):_size(0){
 	_vector.clear();
-	_deque.clear();
+	_list.clear();
 	parse_input(input);
 }
 
-PmergeMe::PmergeMe(const PmergeMe& new_object){*this = new_object;}
+PmergeMe::PmergeMe(const PmergeMe& new_object):_size(0){*this = new_object;}
+
 PmergeMe::~PmergeMe(){}
 
 std::vector<std::string>	PmergeMe::split_vectors(std::string str, char delimiter){
@@ -53,6 +56,19 @@ bool PmergeMe::is_string_int(const std::string& str){
     return true;
 }
 
+void	PmergeMe::print_vector(){
+	for(size_t i = 0; i < _vector.size(); i++)
+		std::cout << _vector[i] << " ";
+	std::cout << std::endl;
+}
+
+void	PmergeMe::print_list(){
+	std::list<int>::iterator it;
+	for(it = _list.begin(); it != _list.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
 int PmergeMe::parse_input(std::string input){
 	std::vector<std::string> temp = split_vectors(input, ' ');
 	
@@ -64,32 +80,22 @@ int PmergeMe::parse_input(std::string input){
 		if (is_string_int(temp[i]) == false)
 			throw std::runtime_error("Error: Bad input 2");
 		_vector.push_back(_temp);
-		_deque.push_back(_temp);
+		_list.push_back(_temp);
+		_size++;
 	}
-	
-	for(size_t i = 0; i < _vector.size(); i++)
-		std::cout << _vector[i] << " ";
-	std::cout << std::endl;
-	for(size_t i = 0; i < _deque.size(); i++)
-		std::cout << _deque[i] << " ";
-	std::cout << std::endl;
+
 	return (0);
-	// parse_vector(temp);
-	// parse_deque(temp);
 }
 
-template <typename T>
-int	PmergeMe::sort_algo(T& input){
+// template <typename T>
+// int	PmergeMe::sort_algo(T& input){
 	
-}
-
-// int	PmergeMe::parse_vector(std::vector<std::string> input){
 // }
-// int	PmergeMe::parse_deque(std::vector<std::string> input){}
+
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& other){
 	if(this != &other){
-		this->_deque = other._deque;
+		this->_list = other._list;
 		this->_vector = other._vector;
 	}
 	return(*this);

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:29 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/13 14:46:45 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:16:47 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv){
 	try
 	{
 		PmergeMe test(argv[1]);
+		test.print_content();
 	}
 	catch(const std::exception& e)
 	{
