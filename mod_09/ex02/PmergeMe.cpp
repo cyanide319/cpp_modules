@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/17 19:07:19 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:09:56 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,58 +105,6 @@ void PmergeMe::sort_vector(int start, int end){
 	}
 }
 
-
-
-void PmergeMe::merge_vector(int start, int middle, int end){
-	std::vector<int> temp_vec;
-
-	int left_index = start;
-	int right_index = (middle + 1);
-		
-	std::vector<int>::iterator left_iter = _vector.begin();
-	std::advance(left_iter, start);
-	std::vector<int>::iterator right_iter = _vector.begin();
-	std::advance(right_iter, (middle + 1));
-	
-	while (left_index <= middle && right_index <= end){
-		if (*left_iter <= *right_iter){
-			temp_vec.push_back(*left_iter);
-			left_iter++;
-			left_index++;
-		}
-		else{
-			temp_vec.push_back(*right_iter);
-			right_iter++;
-			right_index++;
-		}
-	}
-
-	while (left_index <= middle){
-		temp_vec.push_back(*left_iter);
-		left_iter++;
-		left_index++;
-	}
-	while (right_index <= end){
-		temp_vec.push_back(*right_iter);
-		right_iter++;
-		right_index++;
-	}
-
-	std::vector<int>::iterator temp_iter = temp_vec.begin();
-	std::vector<int>::iterator vector_iter = _vector.begin();
-	std::advance(vector_iter, start);
-
-	while(start <= end){
-		*vector_iter = *temp_iter;
-		temp_iter++;
-		vector_iter++;
-		++start;
-	}
-}
-
-
-
-
 //LIST SORT
 
 void PmergeMe::sort_list(int start, int end){
@@ -169,55 +117,6 @@ void PmergeMe::sort_list(int start, int end){
 		merge_container(_list, start, middle, end);
 	}
 }
-
-void PmergeMe::merge_list(int start, int middle, int end){
-	std::list<int> temp_list;
-
-	int left_index = start;
-	int right_index = (middle + 1);
-		
-	std::list<int>::iterator left_iter = _list.begin();
-	std::advance(left_iter, start);
-	std::list<int>::iterator right_iter = _list.begin();
-	std::advance(right_iter, middle + 1);
-	
-	while (left_index <= middle && right_index <= end){
-		if (*left_iter <= *right_iter){
-			temp_list.push_back(*left_iter);
-			left_iter++;
-			left_index++;
-		}
-		else{
-			temp_list.push_back(*right_iter);
-			right_iter++;
-			right_index++;
-		}
-	}
-
-	while (left_index <= middle){
-		temp_list.push_back(*left_iter);
-		left_iter++;
-		left_index++;
-	}
-	while (right_index <= end){
-		temp_list.push_back(*right_iter);
-		right_iter++;
-		right_index++;
-	}
-
-	std::list<int>::iterator temp_iter = temp_list.begin();
-	std::list<int>::iterator list_iter =	_list.begin();
-	std::advance(list_iter, start);
-
-	while(start <= end){
-		*list_iter = *temp_iter;
-		temp_iter++;
-		list_iter++;
-		++start;
-	}	
-}
-
-
 
 std::vector<std::string>	PmergeMe::split_vectors(std::string str, char delimiter){
 	std::vector<std::string>	ret;
