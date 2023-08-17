@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/16 15:48:03 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:07:19 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,206 @@ PmergeMe::PmergeMe(std::string input):_size(0){
 	_vector.clear();
 	_list.clear();
 	parse_input(input);
+	
+	struct timeval start, end;
+	long seconds, microseconds;
+
+
+	gettimeofday(&start, NULL);
+	sort_vector(0, (_vector.size() - 1));
+	gettimeofday(&end, NULL);
+    seconds = end.tv_sec - start.tv_sec;
+    microseconds = end.tv_usec - start.tv_usec;
+    double vector_time = (seconds * 1000) + (microseconds / 1000.0);
+    std::cout << "Time elapsed: " << vector_time << " milliseconds" << std::endl;
+	
+	gettimeofday(&start, NULL);
+	sort_list(0, (_list.size() - 1));
+	gettimeofday(&end, NULL);
+    seconds = end.tv_sec - start.tv_sec;
+    microseconds = end.tv_usec - start.tv_usec;
+    double list_time = (seconds * 1000) + (microseconds / 1000.0);
+    std::cout << "Time elapsed: " << list_time << " milliseconds" << std::endl;
+
 }
 
 PmergeMe::PmergeMe(const PmergeMe& new_object):_size(0){*this = new_object;}
 
 PmergeMe::~PmergeMe(){}
+
+template <typename Container>
+void PmergeMe::merge_container(Container& container, int start, int middle, int end){
+	Container temp;
+
+	int left_index = start;
+	int right_index = (middle + 1);
+		
+	typename Container::iterator left_iter = container.begin();
+	std::advance(left_iter, start);
+	typename Container::iterator right_iter = container.begin();
+	std::advance(right_iter, (middle + 1));
+	
+	while (left_index <= middle && right_index <= end){
+		if (*left_iter <= *right_iter){
+			temp.push_back(*left_iter);
+			left_iter++;
+			left_index++;
+		}
+		else{
+			temp.push_back(*right_iter);
+			right_iter++;
+			right_index++;
+		}
+	}
+
+	while (left_index <= middle){
+		temp.push_back(*left_iter);
+		left_iter++;
+		left_index++;
+	}
+	while (right_index <= end){
+		temp.push_back(*right_iter);
+		right_iter++;
+		right_index++;
+	}
+
+	typename Container::iterator temp_iter = temp.begin();
+	typename Container::iterator _iter = container.begin();
+	std::advance(_iter, start);
+
+	while(start <= end){
+		*_iter = *temp_iter;
+		temp_iter++;
+		_iter++;
+		++start;
+	}
+}
+//VECTOR SORT
+
+void PmergeMe::sort_vector(int start, int end){
+	if (start < end){
+		int middle = ((start + end) / 2);
+		
+		sort_vector(start, middle);
+		sort_vector((middle + 1), end);
+		
+		merge_container(_vector, start, middle, end);
+	}
+}
+
+
+
+void PmergeMe::merge_vector(int start, int middle, int end){
+	std::vector<int> temp_vec;
+
+	int left_index = start;
+	int right_index = (middle + 1);
+		
+	std::vector<int>::iterator left_iter = _vector.begin();
+	std::advance(left_iter, start);
+	std::vector<int>::iterator right_iter = _vector.begin();
+	std::advance(right_iter, (middle + 1));
+	
+	while (left_index <= middle && right_index <= end){
+		if (*left_iter <= *right_iter){
+			temp_vec.push_back(*left_iter);
+			left_iter++;
+			left_index++;
+		}
+		else{
+			temp_vec.push_back(*right_iter);
+			right_iter++;
+			right_index++;
+		}
+	}
+
+	while (left_index <= middle){
+		temp_vec.push_back(*left_iter);
+		left_iter++;
+		left_index++;
+	}
+	while (right_index <= end){
+		temp_vec.push_back(*right_iter);
+		right_iter++;
+		right_index++;
+	}
+
+	std::vector<int>::iterator temp_iter = temp_vec.begin();
+	std::vector<int>::iterator vector_iter = _vector.begin();
+	std::advance(vector_iter, start);
+
+	while(start <= end){
+		*vector_iter = *temp_iter;
+		temp_iter++;
+		vector_iter++;
+		++start;
+	}
+}
+
+
+
+
+//LIST SORT
+
+void PmergeMe::sort_list(int start, int end){
+	if (start < end){
+		int middle = ((start + end) / 2);
+		
+		sort_list(start, middle);
+		sort_list((middle + 1), end);
+		
+		merge_container(_list, start, middle, end);
+	}
+}
+
+void PmergeMe::merge_list(int start, int middle, int end){
+	std::list<int> temp_list;
+
+	int left_index = start;
+	int right_index = (middle + 1);
+		
+	std::list<int>::iterator left_iter = _list.begin();
+	std::advance(left_iter, start);
+	std::list<int>::iterator right_iter = _list.begin();
+	std::advance(right_iter, middle + 1);
+	
+	while (left_index <= middle && right_index <= end){
+		if (*left_iter <= *right_iter){
+			temp_list.push_back(*left_iter);
+			left_iter++;
+			left_index++;
+		}
+		else{
+			temp_list.push_back(*right_iter);
+			right_iter++;
+			right_index++;
+		}
+	}
+
+	while (left_index <= middle){
+		temp_list.push_back(*left_iter);
+		left_iter++;
+		left_index++;
+	}
+	while (right_index <= end){
+		temp_list.push_back(*right_iter);
+		right_iter++;
+		right_index++;
+	}
+
+	std::list<int>::iterator temp_iter = temp_list.begin();
+	std::list<int>::iterator list_iter =	_list.begin();
+	std::advance(list_iter, start);
+
+	while(start <= end){
+		*list_iter = *temp_iter;
+		temp_iter++;
+		list_iter++;
+		++start;
+	}	
+}
+
+
 
 std::vector<std::string>	PmergeMe::split_vectors(std::string str, char delimiter){
 	std::vector<std::string>	ret;
@@ -36,7 +231,7 @@ std::vector<std::string>	PmergeMe::split_vectors(std::string str, char delimiter
 
 bool PmergeMe::is_string_digit(const std::string& str){
 	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
-        if (!std::isdigit(*it)) {
+        if (!std::isdigit(*it) && *it != '-') {
             return false;
         }
     }
@@ -74,11 +269,11 @@ int PmergeMe::parse_input(std::string input){
 	
 	for (size_t i = 0; i < temp.size(); i++){
 		if (is_string_digit(temp[i]) == false)
-			throw std::runtime_error("Error: Bad input");
+			throw std::runtime_error("Error: Bad input: " + temp[i]);
 	}
 	for (size_t i = 0; i < temp.size(); i++){
 		if (is_string_int(temp[i]) == false)
-			throw std::runtime_error("Error: Bad input 2");
+			throw std::runtime_error("Error: Bad input: " + temp[i]);
 		_vector.push_back(_temp);
 		_list.push_back(_temp);
 		_size++;
@@ -86,11 +281,6 @@ int PmergeMe::parse_input(std::string input){
 
 	return (0);
 }
-
-// template <typename T>
-// int	PmergeMe::sort_algo(T& input){
-	
-// }
 
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& other){
