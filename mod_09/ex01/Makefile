@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:29:44 by tbeaudoi          #+#    #+#              #
-#    Updated: 2023/07/13 13:48:25 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2023/08/18 15:04:22 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ re: fclean all
 
 exec: re
 		./$(NAME)
+
+
 
 leak: re
 		leaks --atExit -- ./$(NAME) "1 1 + 2 - 4 + 2 * 5 *"

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/17 19:09:56 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:42:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,31 @@ PmergeMe::PmergeMe(std::string input):_size(0){
 PmergeMe::PmergeMe(const PmergeMe& new_object):_size(0){*this = new_object;}
 
 PmergeMe::~PmergeMe(){}
+
+void	PmergeMe::is_sorted(){
+
+	for(size_t i = -1; i < _vector.size(); ++i){
+		if (_vector[i] > _vector[i + 1]){
+			std::cout << _vector[i] << " " << _vector[i + 1] << std::endl;
+			std::cout << "Vector is not sorted" << std::endl;
+			return ;
+		}
+	}
+	std::cout << "Vector is sorted " << std::endl;
+
+	std::list<int>::iterator it;
+	for(it = _list.begin(); it != _list.end(); ++it){
+		if (*it > *it + 1){
+			std::cout << "List is not sorted" << std::endl;
+			return ; 
+		}
+	}
+	std::cout << "List is sorted" << std::endl;
+}
+
+
+
+
 
 template <typename Container>
 void PmergeMe::merge_container(Container& container, int start, int middle, int end){

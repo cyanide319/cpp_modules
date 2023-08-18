@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:19 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/17 19:08:52 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:29:08 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class PmergeMe{
 		void						print_list();
 		void						sort_vector(int start, int end);
 		void						sort_list(int start, int end);
+		void						is_sorted();
 	
 		template <typename Container>
 		void 						merge_container(Container& container, int start, int middle, int end);
