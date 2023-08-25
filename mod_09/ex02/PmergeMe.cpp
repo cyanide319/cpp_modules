@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:22 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/18 15:42:27 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:00:58 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@ PmergeMe::PmergeMe(std::string input):_size(0){
 	struct timeval start, end;
 	long seconds, microseconds;
 
-
+	std::cout << "Before :";
+	print_vector();
+	std::cout << std::endl;
 	gettimeofday(&start, NULL);
 	sort_vector(0, (_vector.size() - 1));
 	gettimeofday(&end, NULL);
+	std::cout << "After :";
+	print_vector();
+	std::cout << std::endl;
     seconds = end.tv_sec - start.tv_sec;
     microseconds = end.tv_usec - start.tv_usec;
     double vector_time = (seconds * 1000) + (microseconds / 1000.0);
-    std::cout << "Time elapsed: " << vector_time << " milliseconds" << std::endl;
+    std::cout << "Time elapsed for std::vector : " << vector_time << " milliseconds" << std::endl;
+	std::cout << std::endl;
 	
 	gettimeofday(&start, NULL);
 	sort_list(0, (_list.size() - 1));
@@ -37,7 +43,8 @@ PmergeMe::PmergeMe(std::string input):_size(0){
     seconds = end.tv_sec - start.tv_sec;
     microseconds = end.tv_usec - start.tv_usec;
     double list_time = (seconds * 1000) + (microseconds / 1000.0);
-    std::cout << "Time elapsed: " << list_time << " milliseconds" << std::endl;
+    std::cout << "Time elapsed for std::list : " << list_time << " milliseconds" << std::endl;
+	std::cout << std::endl;
 
 }
 
@@ -117,10 +124,15 @@ void PmergeMe::merge_container(Container& container, int start, int middle, int 
 		++start;
 	}
 }
+
+
+
+
+
 //VECTOR SORT
 
 void PmergeMe::sort_vector(int start, int end){
-	if (start < end){
+	if ((end - start) > 5){
 		int middle = ((start + end) / 2);
 		
 		sort_vector(start, middle);
@@ -128,18 +140,64 @@ void PmergeMe::sort_vector(int start, int end){
 		
 		merge_container(_vector, start, middle, end);
 	}
+	else
+		insert_vector(start, end);
+}
+
+void PmergeMe::insert_vector(int start, int end){
+	int	j;
+	int	temp;
+
+	for (int i = start; i < (end - 1); ++i)
+	{
+		j = i + 1;
+		temp = _vector[j];
+		while (j > start && _vector[j - 1] > temp)
+		{
+			_vector[j] = _vector[j - 1];
+			--j;
+		}
+		_vector[j] = temp;
+	}
 }
 
 //LIST SORT
 
 void PmergeMe::sort_list(int start, int end){
-	if (start < end){
+	
+	if ((end - start) > 5){
 		int middle = ((start + end) / 2);
 		
 		sort_list(start, middle);
 		sort_list((middle + 1), end);
 		
 		merge_container(_list, start, middle, end);
+	}
+	else
+		insert_list(start, end);
+}
+
+void PmergeMe::insert_list(int start, int end){
+	int n = end - start - 1;
+
+	for (int i = 0; i < n; ++i)
+	{
+		std::list<int>::iterator begin = _list.begin();
+		std::advance(begin, start);
+		std::list<int>::iterator begin_index = begin;
+		std::advance(begin_index, i);
+		std::list<int>::iterator limit = begin_index;
+		std::advance(limit, n - i);
+		std::list<int>::iterator iter = begin_index;
+	
+		int temp = *begin_index;
+		while (iter != begin && *std::prev(iter) > temp)
+			--iter;
+
+		if (iter == begin_index)
+			continue ;
+
+		_list.splice(iter, _list, begin_index);
 	}
 }
 
@@ -155,7 +213,7 @@ std::vector<std::string>	PmergeMe::split_vectors(std::string str, char delimiter
 
 bool PmergeMe::is_string_digit(const std::string& str){
 	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
-        if (!std::isdigit(*it) && *it != '-') {
+        if (!std::isdigit(*it)) {
             return false;
         }
     }
@@ -176,7 +234,7 @@ bool PmergeMe::is_string_int(const std::string& str){
 }
 
 void	PmergeMe::print_vector(){
-	for(size_t i = 0; i < _vector.size(); i++)
+	for(size_t i = 0; i < _vector.size() - 1; i++)
 		std::cout << _vector[i] << " ";
 	std::cout << std::endl;
 }

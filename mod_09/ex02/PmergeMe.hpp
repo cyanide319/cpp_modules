@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:07:19 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/18 15:29:08 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:36:38 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class PmergeMe{
 	
 		template <typename Container>
 		void 						merge_container(Container& container, int start, int middle, int end);
+		void 						insert_list(int start, int end);
+		void 						insert_vector(int start, int end);
 		
 
 		PmergeMe& operator=(const PmergeMe& other);

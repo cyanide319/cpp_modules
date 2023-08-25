@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:49:23 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/07/12 15:15:59 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/18 19:24:27 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ bool BitcoinExchange::is_string_digit(const std::string& str){
 }
 
 int BitcoinExchange::parse_price(std::string str){
-	size_t 		start = str.find_first_of("|");
+	size_t 		start = str.find_first_of(",");
 	std::stringstream	line;
 	line << _line;
 
 	if (start != std::string::npos){
 		_price = 0;
-		std::string	substr = str.substr(start + 2, str.size());
+		std::string	substr = str.substr(start + 1, str.size());
 		if (is_string_digit(substr) == false){
 			std::string error = "Error: Not a digit on line: " + line.str();
 			throw std::runtime_error(error);
@@ -95,7 +95,7 @@ int BitcoinExchange::parse_price_input(std::string str){
 }
 
 int	BitcoinExchange::parse_date(std::string str){
-	size_t 				end = str.find_first_of(" |");
+	size_t 				end = str.find_first_of(",");
 	std::string			temp[3];
 	std::stringstream	line;
 	line << _line;
@@ -227,7 +227,7 @@ int	BitcoinExchange::parsing_database(std::string path){
 	getline(infile, buffer);
 	if (infile.is_open()){
 		while(getline(infile, buffer)){
-			size_t i = buffer.find_first_of("|");
+			size_t i = buffer.find_first_of(",");
 			if (i != std::string::npos && buffer[0] == '2'){
 				if (parse_date(buffer) == 1)
 					return (1);
