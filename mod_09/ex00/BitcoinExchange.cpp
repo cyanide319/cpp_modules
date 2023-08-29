@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:49:23 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2023/08/18 19:24:27 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:42:54 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,12 @@ int	BitcoinExchange::parse_date(std::string str){
 	std::stringstream	line;
 	line << _line;
 
+	if (end < 10){
+		std::string error = "Error: Date is wrong in database on line: " + line.str();
+		throw std::runtime_error(error);
+		return (1);
+	}
+		
 	if (end != std::string::npos){
 		_year = 0;
 		_month = 0;
@@ -117,7 +123,7 @@ int	BitcoinExchange::parse_date(std::string str){
 		}
 		if (is_string_digit(temp[0]) == false || is_string_digit(temp[1]) == false
 			|| is_string_digit(temp[2]) == false){
-			std::string error = "Error: Missing a value on line: " + line.str();
+			std::string error = "Error: Missing a value in database on line: " + line.str();
 			throw std::runtime_error(error);
 		}
 		std::istringstream year(temp[0]);
@@ -127,20 +133,20 @@ int	BitcoinExchange::parse_date(std::string str){
 		month >> _month;
 		day >> _day;
 		if ((_year < 2009 || _year > 2023) || (_month < 1 || _month > 12) || (_day < 1 || _day > 31)){
-			std::string error = "Error: Date is wrong on line: " + line.str();
+			std::string error = "Error: Date is wrong in database on line: " + line.str();
 			throw std::runtime_error(error);
 			return (1);
 		}
 		if (_month == 4 || _month == 6 || _month == 9 || _month == 11){
 			if (_day > 30){
-				std::string error = "Error: Date is wrong on line: " + line.str();
+				std::string error = "Error: Date is wrong in database on line: " + line.str();
 				throw std::runtime_error(error);
 				return (1);
 				}
 		}
 		else if (_month == 2){
 			if (_day > 29){
-				std::string error = "Error: Date is wrong on line: " + line.str();
+				std::string error = "Error: Date is wrong in database on line: " + line.str();
 				throw std::runtime_error(error);
 				return (1);
 				}
@@ -158,6 +164,12 @@ int	BitcoinExchange::parse_date_input(std::string str){
 	std::string			temp[3];
 	std::stringstream	line;
 	line << _line;
+
+	if (end < 10){
+		std::string error = "Error: Date is wrong on line: " + line.str();
+		std::cerr << error << std::endl;
+		return (1);
+	}
 
 	if (end != std::string::npos){
 		_year = 0;
